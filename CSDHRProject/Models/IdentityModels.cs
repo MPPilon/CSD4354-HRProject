@@ -16,18 +16,38 @@ namespace CSDHRProject.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        //Custom User attributes
+        public bool manager { get; set; }
+        public bool admin { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+        public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false)
         {
+            
         }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        //Insert DbSet variables (Table Names!) here in the following format:
+        // public DbSet<%MODEL_NAME%> %TABLE_NAME% { get; set; }
+        //Example:
+        // public DbSet<Benefits> Benefits { get; set; }
+
+        //Once added here, you can update the database by opening the NuGet console
+        // (Tools > NuGet Package Manager > Package Manager Console)
+        //then running the following command: 
+        // Update-Database
+        //This will create or modify all tables in the database
+
+        //If you insert a table, decide you do not want it anymore,
+        //and want to delete it, remove it from here and run:
+        // Update-Database -Force
+        //This will DELETE the table and ALL DATA within it.
     }
 }
