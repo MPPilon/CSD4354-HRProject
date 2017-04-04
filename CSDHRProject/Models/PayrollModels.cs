@@ -12,6 +12,6 @@ namespace CSDHRProject.Models
         public int ManagerId { get; set; }
         public String ManagerName { get; set; }
         public double PayRate { get; set; }
-
+        public String Position { get; set; }
     }
 }
