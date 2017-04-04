@@ -11,7 +11,7 @@ namespace CSDHRProject.Models
         public String Id { get; set; }
         public String Sin { get; set; }
         public String BenefitNumber {get;set;}
-        public int RateOfPay { get; set; }       
+        public double RateOfPay { get; set; }       
         public int VacationDays { get; set; }
         public int SickDays { get; set; }
         public String BenefitCertificateFileName { get; set; }
