@@ -1,15 +1,18 @@
 ﻿@model IEnumerable<CSDHRProject.Models.PayrollModels>
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
 
 @{
     ViewBag.Title = "PayrollHome";
+    var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
 }
 
 <!-- Get this stupid thing to work later -->
-<h2>@Html.DisplayNameFor(model => model.Name)'s Payroll Summary</h2>
+<h2>@user.UserName's Payroll Summary</h2>
 
 
-<h6>@*@Html.ActionLink("Details", "Details")*@Instructions on entering timesheets</h6>
-<h6>@*@Html.ActionLink("Details", "Details")*@Payroll Schedule</h6>
+<h6>@*@Html.ActionLink("Instructions", "Instructions")*@Instructions on entering timesheets</h6>
+<h6>@*@Html.ActionLink("Calendar", "PayrollModelsController")*@Payroll Schedule</h6>
 
 <br />
 
@@ -29,33 +32,33 @@
     <tr>
         <td>
             Employee Calendar
-            @*@Html.ActionLink("Calendar", "Calendar", new { id = item.Id }) *@
+            @*@Html.ActionLink("Calendar", "PayrollModelsController") *@
         </td>
         <td>
             Add a Timesheet Entry
-            @*@Html.ActionLink("Timesheet", "TimesheetEntry", new { id = item.Id }) *@
+            @*@Html.ActionLink("Timesheet", "PayrollModelsController", new { id = item.Id }) *@
         </td>
         <td>
             Project Report
-            @*@Html.ActionLink("Report", "ProjectReport", new { id = item.Id }) *@
+            @*@Html.ActionLink("Report", "PayrollModelsController", new { id = item.Id }) *@
         </td>
     </tr>
     <tr>
         <td></td>
         <td>
             Employee Timesheets
-            @*@Html.ActionLink("Timesheet", "EmployeeTimesheet", new { id = item.Id }) *@
+            @*@Html.ActionLink("Timesheet", "PayrollModelsController", new { id = item.Id }) *@
         </td>
         <td>
             Employee Report
-            @*@Html.ActionLink("Report", "EmployeeReport", new { id = item.Id }) *@
+            @*@Html.ActionLink("Report", "PayrollModelsController", new { id = item.Id }) *@
         </td>
     </tr>
     <tr>
         <td></td>
         <td>
             Project Timesheets
-            @*@Html.ActionLink("Timesheet", "ProjectTimesheet", new { id = item.Id }) *@
+            @*@Html.ActionLink("Timesheet", "PayrollModelsController", new { id = item.Id }) *@
         </td>
         <td></td>
     </tr>
@@ -71,7 +74,7 @@
         </th>
         <th>
             Enter Hours
-            @*@Html.ActionLink("Timesheet", "TimesheetEntry", new { id = item.Id }) *@
+            @*@Html.ActionLink("Timesheet", "PayrollModelsController", new { id = item.Id }) *@
         </th>
         <th>
             Hours Entered
@@ -81,10 +84,11 @@
         </th>
         <th>
             View Hours
-            @*@Html.ActionLink("Timesheet", "EmployeeTimesheet", new { id = item.Id }) *@
+            @*@Html.ActionLink("Timesheet", "PayrollModelsController", new { id = item.Id }) *@
         </th>
     </tr>
 </table>
+
 @*@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
     @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-info" })
     @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })*@

@@ -10,7 +10,7 @@ using CSDHRProject.Models;
 
 namespace CSDHRProject.Controllers
 {
-    public class PayrollModelsController : Controller
+    public class PayrollController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -122,6 +122,20 @@ namespace CSDHRProject.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // GET: PayrollModels/Instructions
+        public ActionResult Instructions(int? id)
+        {
+            PayrollModels payrollModels = db.PayrollModels.Find(id);
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(payrollModels).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Instructions");
+            }
+            return View(payrollModels);
         }
     }
 }
