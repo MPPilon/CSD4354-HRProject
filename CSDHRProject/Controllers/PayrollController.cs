@@ -138,6 +138,7 @@ namespace CSDHRProject.Controllers
             return View(payrollModels);
         }
 
+        #region TimesheetEntry
         // GET: PayrollModels/TimesheetEntry
         public ActionResult TimesheetEntry()
         {
@@ -160,7 +161,9 @@ namespace CSDHRProject.Controllers
 
             return View(payrollModels);
         }
+        #endregion
 
+        #region Calendar
         // GET: PayrollModels/Calendar
         public ActionResult Calendar()
         {
@@ -183,5 +186,82 @@ namespace CSDHRProject.Controllers
 
             return View(payrollModels);
         }
+        #endregion
+
+        #region EmployeeTimesheet
+        // GET: PayrollModels/EmployeeTimesheet
+        public ActionResult EmployeeTimesheet()
+        {
+            return View();
+        }
+
+        // POST: PayrollModels/EmployeeTimesheet
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmployeeTimesheet([Bind(Include = "Id,Name,ManagerId,ManagerName,PayRate,Position")] PayrollModels payrollModels)
+        {
+            if (ModelState.IsValid)
+            {
+                db.PayrollModels.Add(payrollModels);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(payrollModels);
+        }
+        #endregion
+
+        #region ProjectTimesheet
+        // GET: PayrollModels/ProjectTimesheet
+        public ActionResult ProjectTimesheet()
+        {
+            return View();
+        }
+
+        // POST: PayrollModels/ProjectTimesheet
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ProjectTimesheet([Bind(Include = "Id,Name,ManagerId,ManagerName,PayRate,Position")] PayrollModels payrollModels)
+        {
+            if (ModelState.IsValid)
+            {
+                db.PayrollModels.Add(payrollModels);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(payrollModels);
+        }
+
+        #endregion
+
+        #region Reports
+        // GET: PayrollModels/Reports
+        public ActionResult Reports()
+        {
+            return View();
+        }
+
+        // POST: PayrollModels/Reports
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Reports([Bind(Include = "Id,Name,ManagerId,ManagerName,PayRate,Position")] PayrollModels payrollModels)
+        {
+            if (ModelState.IsValid)
+            {
+                db.PayrollModels.Add(payrollModels);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(payrollModels);
+        }
+        #endregion
     }
 }

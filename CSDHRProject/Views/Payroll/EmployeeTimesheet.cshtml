@@ -1,58 +1,51 @@
-﻿@model CSDHRProject.Models.PayrollModels
+﻿@model IEnumerable<CSDHRProject.Models.PayrollModels>
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
 
 @{
-    ViewBag.Title = "EmployeeTimesheet";
+    ViewBag.Title = "PayrollHome";
+    var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+
 }
 
-<h2>EmployeeTimesheet</h2>
+<!-- Get this stupid thing to work later -->
+<h2>@user.UserName's Timesheet Summary</h2>
 
 <div>
-    <h4>PayrollModels</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <p>Employee Name: @user.UserName</p>
+    <p>Employee Id: @user.Id</p>
+    <p>Project: @*@user.*@</p>
+    <p>Position: @*@user.*@</p>
+    <p>Manager: @user.manager</p>
+</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Project
+            </th>
+            <th>
+                Work Note
+            </th>
+            <th>
+                Hours
+            </th>
+            <th>
+                Entry Added
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+        <tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ManagerId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ManagerId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ManagerName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ManagerName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PayRate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PayRate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Position)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Position)
-        </dd>
-
-    </dl>
+        </tr>
+    </table>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Payroll Home", "Index")
 </p>
