@@ -196,7 +196,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\BenefitRegistrationsController.cs" />
+    <Compile Include="Controllers\EmployeeClaimsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -282,6 +284,16 @@
     <Content Include="Views\BenefitRegistrations\Details.cshtml" />
     <Content Include="Views\BenefitRegistrations\Edit.cshtml" />
     <Content Include="Views\BenefitRegistrations\Index.cshtml" />
+    <Content Include="Views\EmployeeClaims\Create.cshtml" />
+    <Content Include="Views\EmployeeClaims\Delete.cshtml" />
+    <Content Include="Views\EmployeeClaims\Details.cshtml" />
+    <Content Include="Views\EmployeeClaims\Edit.cshtml" />
+    <Content Include="Views\EmployeeClaims\Index.cshtml" />
+    <Content Include="Views\Addresses\Create.cshtml" />
+    <Content Include="Views\Addresses\Delete.cshtml" />
+    <Content Include="Views\Addresses\Details.cshtml" />
+    <Content Include="Views\Addresses\Edit.cshtml" />
+    <Content Include="Views\Addresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
