@@ -11,8 +11,8 @@
 <h2>@user.UserName's Payroll Summary</h2>
 
 
-<h6>@*@Html.ActionLink("Instructions", "Instructions")*@Instructions on entering timesheets</h6>
-<h6>@*@Html.ActionLink("Calendar", "PayrollModelsController")*@Payroll Schedule</h6>
+<h6>@Html.ActionLink("Instructions on entering timesheets", "Instructions")</h6>
+<h6>@Html.ActionLink("Payroll Schedule", "Calendar")</h6>
 
 <br />
 
@@ -31,33 +31,34 @@
     </tr>
     <tr>
         <td>
-            Employee Calendar
-            @*@Html.ActionLink("Calendar", "PayrollModelsController") *@
+            @*Employee Calendar*@
+            @Html.ActionLink("Employee Calendar", "Calendar")
         </td>
         <td>
-            @Html.ActionLink("Add a Timesheet Entry", "TimesheetEntry") 
+            @*Timesheet Entry*@
+            @Html.ActionLink("Add a Timesheet Entry", "TimesheetEntry")
         </td>
         <td>
-            Project Report
-            @*@Html.ActionLink("Report", "PayrollModelsController", new { id = item.Id }) *@
-        </td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>
-            Employee Timesheets
-            @*@Html.ActionLink("Timesheet", "PayrollModelsController", new { id = item.Id }) *@
-        </td>
-        <td>
-            Employee Report
-            @*@Html.ActionLink("Report", "PayrollModelsController", new { id = item.Id }) *@
+            @*Project Report*@
+            @Html.ActionLink("Project Report", "Reports")
         </td>
     </tr>
     <tr>
         <td></td>
         <td>
-            Project Timesheets
-            @*@Html.ActionLink("Timesheet", "PayrollModelsController", new { id = item.Id }) *@
+            @*Employee Timesheets*@
+            @Html.ActionLink("Employee Timesheet", "EmployeeTimesheet")
+        </td>
+        <td>
+            @*Employee Report*@
+            @Html.ActionLink("Employee Report", "Reports")
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            @*Project Timesheets*@
+            @Html.ActionLink("Project Timesheet", "ProjectTimesheet")
         </td>
         <td></td>
     </tr>
@@ -73,7 +74,6 @@
         </th>
         <th>
             Enter Hours
-            @*@Html.ActionLink("Timesheet", "PayrollModelsController", new { id = item.Id }) *@
         </th>
         <th>
             Hours Entered
@@ -83,9 +83,24 @@
         </th>
         <th>
             View Hours
-            @*@Html.ActionLink("Timesheet", "PayrollModelsController", new { id = item.Id }) *@
         </th>
     </tr>
+    @*@foreach (var project in Model)*@
+    @* { *@
+        <tr>
+            <td></td>
+            <td>
+                @*Enter Hours*@
+                @Html.ActionLink("Enter Hours", "TimesheetEntry")
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+                @*View Hours*@
+                @Html.ActionLink("View Hours", "EmployeeTimesheet")
+            </td>
+        </tr>
+    @* } *@
 </table>
 
 @*@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })

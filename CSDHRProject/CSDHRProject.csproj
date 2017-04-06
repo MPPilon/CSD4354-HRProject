@@ -281,6 +281,10 @@
     <Content Include="Views\Payroll\Index.cshtml" />
     <Content Include="Views\Payroll\Instructions.cshtml" />
     <Content Include="Views\Payroll\TimesheetEntry.cshtml" />
+    <Content Include="Views\Payroll\Calendar.cshtml" />
+    <Content Include="Views\Payroll\Reports.cshtml" />
+    <Content Include="Views\Payroll\EmployeeTimesheet.cshtml" />
+    <Content Include="Views\Payroll\ProjectTimesheet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />
