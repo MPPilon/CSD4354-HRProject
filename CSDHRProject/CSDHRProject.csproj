@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BenefitRegistrationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -273,13 +274,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Benefits\Claim.cshtml" />
-    <Content Include="Views\Benefits\EmployeeClaim.cshtml" />
-    <Content Include="Views\Benefits\Index.cshtml" />
+    <Content Include="Views\Benefits2\Claim.cshtml" />
+    <Content Include="Views\Benefits2\EmployeeClaim.cshtml" />
+    <Content Include="Views\Benefits2\Index.cshtml" />
+    <Content Include="Views\BenefitRegistrations\Create.cshtml" />
+    <Content Include="Views\BenefitRegistrations\Delete.cshtml" />
+    <Content Include="Views\BenefitRegistrations\Details.cshtml" />
+    <Content Include="Views\BenefitRegistrations\Edit.cshtml" />
+    <Content Include="Views\BenefitRegistrations\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
