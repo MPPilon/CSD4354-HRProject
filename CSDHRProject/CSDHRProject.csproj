@@ -275,6 +275,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Benefits\Claim.cshtml" />
     <Content Include="Views\Benefits\EmployeeClaim.cshtml" />
+    <Content Include="Views\Benefits\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />
