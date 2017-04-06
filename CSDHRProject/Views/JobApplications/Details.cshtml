@@ -1,0 +1,66 @@
+﻿@model CSDHRProject.Models.JobApplication
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JobApplication</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicantFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicantFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicantLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicantLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicantEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicantEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumeFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumeFileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoverLetterFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoverLetterFileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicantStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicantStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobApplicationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

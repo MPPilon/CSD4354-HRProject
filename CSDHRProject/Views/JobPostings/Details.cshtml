@@ -1,0 +1,50 @@
+﻿@model CSDHRProject.Models.JobPosting
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JobPosting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobPostingDeadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobPostingDeadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobDepartmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobDepartmentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobPostingFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobPostingFileName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobPostingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

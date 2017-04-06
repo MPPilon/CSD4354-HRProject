@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CSDHRProject.Models.JobPosting>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobPostingDeadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobDepartmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobPostingFileName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobPostingDeadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobDepartmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobPostingFileName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.JobPostingId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.JobPostingId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.JobPostingId })
+        </td>
+    </tr>
+}
+
+</table>
