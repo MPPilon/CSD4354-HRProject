@@ -137,5 +137,28 @@ namespace CSDHRProject.Controllers
             }
             return View(payrollModels);
         }
+
+        public ActionResult TimesheetEntry()
+        {
+            return View();
+        }
+
+        // POST: PayrollModels/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult TimesheetEntry([Bind(Include = "Id,Name,ManagerId,ManagerName,PayRate,Position")] PayrollModels payrollModels)
+        {
+            if (ModelState.IsValid)
+            {
+                db.PayrollModels.Add(payrollModels);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(payrollModels);
+        }
+
     }
 }

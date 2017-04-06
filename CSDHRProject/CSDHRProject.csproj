@@ -274,12 +274,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\PayrollModels\Create.cshtml" />
-    <Content Include="Views\PayrollModels\Delete.cshtml" />
-    <Content Include="Views\PayrollModels\Details.cshtml" />
-    <Content Include="Views\PayrollModels\Edit.cshtml" />
-    <Content Include="Views\PayrollModels\Index.cshtml" />
-    <Content Include="Views\PayrollModels\Instructions.cshtml" />
+    <Content Include="Views\Payroll\Create.cshtml" />
+    <Content Include="Views\Payroll\Delete.cshtml" />
+    <Content Include="Views\Payroll\Details.cshtml" />
+    <Content Include="Views\Payroll\Edit.cshtml" />
+    <Content Include="Views\Payroll\Index.cshtml" />
+    <Content Include="Views\Payroll\Instructions.cshtml" />
+    <Content Include="Views\Payroll\TimesheetEntry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />
