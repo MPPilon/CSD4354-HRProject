@@ -34,6 +34,9 @@ namespace CSDHRProject.Models
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<CSDHRProject.Models.Project> Projects { get; set; }
+        public System.Data.Entity.DbSet<CSDHRProject.Models.ProjectUser> ProjectUsers { get; set; }
+
         //Insert DbSet variables (Table Names!) here in the following format:
         // public DbSet<%MODEL_NAME%> %TABLE_NAME% { get; set; }
         //Example:

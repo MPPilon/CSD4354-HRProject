@@ -5,22 +5,21 @@ using System.Web;
 
 namespace CSDHRProject.Models
 {
-    public class Project_Model
+    public class Project
     {
         public int Id { get; set; }
         public String Title { get; set; }
         public  DateTime Date { get; set; }
-        public String Author { get; set; }
-        public String Lead { get; set; }
-
-
-
+        public String Description { get; set; }
+        public virtual ApplicationUser Author { get; set; }
+        public virtual ApplicationUser Lead { get; set; }
     }
 
-    public class Project_user
+    public class ProjectUser
     {
         public int Id { get; set; }
-        public String Name { get; set; }
+        public virtual ApplicationUser User{ get; set; }
+        public virtual Project Project { get; set; }
         public bool Manager { get; set; }
 
     }
