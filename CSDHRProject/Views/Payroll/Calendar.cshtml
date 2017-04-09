@@ -14,11 +14,13 @@
 <p>
     Use buttons to display by calendar type
 </p>
-<label>@Html.RadioButton("EmployeeCalendar", @Model["ABC"])Employee Calendar</label>
-<label>@Html.RadioButton("ProjectCalendar", @Model["ABC"])Project Calendar</label>
+<label>@Html.RadioButton("Calendar", "Employee", new { id = "isEmployee" })Employee Calendar</label>
+<label>@Html.RadioButton("Calendar", "Project", new { id = "isProject" })Project Calendar</label>
 <div class="form-group">
-    @Html.LabelFor(model => model.Project)
-    @Html.DropDownListFor(model => model.Project, Model.Project, "- Please select a Project -", new { @class = "form-control}" })
+    @*@Html.LabelFor(model => model.Project)
+    @Html.DropDownListFor(model => model.ProjectName, Model.ProjectName, "- Please select a Project -", new { @class = "form-control}" })*@
+
+    @Html.DropDownList("Project", ViewData["projects"] as List<SelectListItem>)
 </div>
 <button type="submit" class="btn btn-primary"> Load Calendar </button>
 
@@ -27,4 +29,24 @@
 
 <br />
 @* Enter Calendar here *@
+<form id="form1" runat="server">
 
+    <asp:Calendar id="calendar1" runat="server">
+
+        <OtherMonthDayStyle ForeColor="LightGray">
+        </OtherMonthDayStyle>
+
+        <TitleStyle BackColor="Blue"
+                    ForeColor="White">
+        </TitleStyle>
+
+        <DayStyle BackColor="gray">
+        </DayStyle>
+
+        <SelectedDayStyle BackColor="LightGray"
+                          Font-Bold="True">
+        </SelectedDayStyle>
+
+    </asp:Calendar>
+
+</form>

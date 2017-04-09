@@ -14,12 +14,16 @@ namespace CSDHRProject.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        #region Index
         // GET: PayrollModels
         public ActionResult Index()
         {
             return View(db.PayrollModels.ToList());
         }
 
+        #endregion
+
+        #region Details
         // GET: PayrollModels/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,7 +38,9 @@ namespace CSDHRProject.Controllers
             }
             return View(payrollModels);
         }
+        #endregion
 
+        #region Create
         // GET: PayrollModels/Create
         public ActionResult Create()
         {
@@ -57,7 +63,9 @@ namespace CSDHRProject.Controllers
 
             return View(payrollModels);
         }
+        #endregion
 
+        #region Edit
         // GET: PayrollModels/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -88,7 +96,9 @@ namespace CSDHRProject.Controllers
             }
             return View(payrollModels);
         }
+        #endregion
 
+        #region Delete
         // GET: PayrollModels/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -123,7 +133,9 @@ namespace CSDHRProject.Controllers
             }
             base.Dispose(disposing);
         }
+        #endregion
 
+        #region Instructions
         // GET: PayrollModels/Instructions
         public ActionResult Instructions(int? id)
         {
@@ -137,6 +149,7 @@ namespace CSDHRProject.Controllers
             }
             return View(payrollModels);
         }
+        #endregion
 
         #region TimesheetEntry
         // GET: PayrollModels/TimesheetEntry
@@ -160,6 +173,14 @@ namespace CSDHRProject.Controllers
             }
 
             return View(payrollModels);
+        }
+
+        public partial class DatePickerController : Controller
+        {
+            public ActionResult Index()
+            {
+                return View();
+            }
         }
         #endregion
 
@@ -185,6 +206,18 @@ namespace CSDHRProject.Controllers
             }
 
             return View(payrollModels);
+        }
+
+        public ActionResult LoadProjects()
+        {
+            List<SelectListItem> li = new List<SelectListItem>();
+            li.Add(new SelectListItem { Text = "Select Project", Value = 0 });
+            foreach (var project in db.PayrollModels.Project)
+            {
+                var count = 1;
+                li.Add(new SelectListItem { Text = Model.ProjectName, Value = count });
+                count++;
+            }
         }
         #endregion
 

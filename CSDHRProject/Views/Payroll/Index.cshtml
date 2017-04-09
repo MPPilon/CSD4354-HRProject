@@ -32,33 +32,69 @@
     <tr>
         <td>
             @*Employee Calendar*@
-            @Html.ActionLink("Employee Calendar", "Calendar")
+            @*@Html.ActionLink("Employee Calendar", "Calendar")*@
+            <a href="@Url.Action("Calendar", "Payroll/")">
+                <i class="glyphicon glyphicon-calendar"></i>
+                <span>
+                    <strong>Employee Calendar</strong>
+                </span>
+            </a>
         </td>
         <td>
             @*Timesheet Entry*@
-            @Html.ActionLink("Add a Timesheet Entry", "TimesheetEntry")
+            @*@Html.ActionLink("Add a Timesheet Entry", "TimesheetEntry")*@
+            <a href="@Url.Action("TimesheetEntry", "Payroll/")">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span>
+                    <strong>Add a Timesheet Entry</strong>
+                </span>
+            </a>
         </td>
         <td>
             @*Project Report*@
-            @Html.ActionLink("Project Report", "Reports")
+            @*@Html.ActionLink("Project Report", "Reports")*@
+            <a href="@Url.Action("ProjectReport", "Payroll/")">
+                <i class= "glyphicon glyphicon-file"></i>
+                <span>
+                    <strong>Project Report</strong>
+                </span>
+            </a>
         </td>
     </tr>
     <tr>
         <td></td>
         <td>
             @*Employee Timesheets*@
-            @Html.ActionLink("Employee Timesheet", "EmployeeTimesheet")
+            @*@Html.ActionLink("Employee Timesheet", "EmployeeTimesheet")*@
+            <a href="@Url.Action("EmployeeTimesheet", "Payroll/")">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <span>
+                    <strong>Employee Timesheet</strong>
+                </span>
+            </a>
         </td>
         <td>
             @*Employee Report*@
-            @Html.ActionLink("Employee Report", "Reports")
+            @*@Html.ActionLink("Employee Report", "Reports")*@
+            <a href="@Url.Action("Reports", "Payroll/")">
+                <i class= "glyphicon glyphicon-file"></i>
+                <span>
+                    <strong>Employee Report</strong>
+                </span>
+            </a>
         </td>
     </tr>
     <tr>
         <td></td>
         <td>
             @*Project Timesheets*@
-            @Html.ActionLink("Project Timesheet", "ProjectTimesheet")
+            @*@Html.ActionLink("Project Timesheet", "ProjectTimesheet")*@
+            <a href="@Url.Action("ProjectTimesheet", "Payroll/")">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <span>
+                    <strong>Project Timesheet</strong>
+                </span>
+            </a>
         </td>
         <td></td>
     </tr>
