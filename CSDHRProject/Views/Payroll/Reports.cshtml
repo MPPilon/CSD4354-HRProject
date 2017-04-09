@@ -7,52 +7,14 @@
 <h2>Reports</h2>
 
 <div>
-    <h4>PayrollModels</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    @* Radio Buttons *@
+    <p>
+        Use buttons to display report
+    </p>
+    <label>@Html.RadioButton("Reports", "Employee", new { id = "isEmployee" })Employee Report</label>
+    <label>@Html.RadioButton("Reports", "Project", new { id = "isProject" })Project Report</label>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ManagerId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ManagerId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ManagerName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ManagerName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PayRate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PayRate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Position)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Position)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+<div>
     @Html.ActionLink("Back to List", "Index")
-</p>
+</div>

@@ -11,16 +11,21 @@
 
 <br />
 
+@* Radio Buttons *@
 <p>
     Use buttons to display by calendar type
 </p>
 <label>@Html.RadioButton("Calendar", "Employee", new { id = "isEmployee" })Employee Calendar</label>
 <label>@Html.RadioButton("Calendar", "Project", new { id = "isProject" })Project Calendar</label>
+
+@* Dropdown Project Selector *@
 <div class="form-group">
     @*@Html.LabelFor(model => model.Project)
     @Html.DropDownListFor(model => model.ProjectName, Model.ProjectName, "- Please select a Project -", new { @class = "form-control}" })*@
 
-    @Html.DropDownList("Project", ViewData["projects"] as List<SelectListItem>)
+    @*@Html.DropDownList("Project", ViewData["projects"] as List<SelectListItem>)*@
+
+    @Html.EditorFor(model => model.Project)
 </div>
 <button type="submit" class="btn btn-primary"> Load Calendar </button>
 
@@ -50,3 +55,7 @@
     </asp:Calendar>
 
 </form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
