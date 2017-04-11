@@ -276,9 +276,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Benefits2\Claim.cshtml" />
-    <Content Include="Views\Benefits2\EmployeeClaim.cshtml" />
-    <Content Include="Views\Benefits2\Index.cshtml" />
     <Content Include="Views\BenefitRegistrations\Create.cshtml" />
     <Content Include="Views\BenefitRegistrations\Delete.cshtml" />
     <Content Include="Views\BenefitRegistrations\Details.cshtml" />
