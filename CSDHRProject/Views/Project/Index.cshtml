@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Project Management</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Project", "Create")
 </p>
 <table class="table">
     <tr>
@@ -15,11 +15,19 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
+             @Html.DisplayNameFor(model => model.Lead)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Date)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
+        
         <th></th>
     </tr>
 

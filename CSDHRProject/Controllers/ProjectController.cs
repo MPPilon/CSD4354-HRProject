@@ -46,7 +46,7 @@ namespace CSDHRProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Date,Description")] Project project_Model)
+        public ActionResult Create([Bind(Include = "Id,Title,Date,Description,Author,Lead")] Project project_Model)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace CSDHRProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Date,Description")] Project project_Model)
+        public ActionResult Edit([Bind(Include = "Id,Title,Date,Description,Author,Lead")] Project project_Model)
         {
             if (ModelState.IsValid)
             {
