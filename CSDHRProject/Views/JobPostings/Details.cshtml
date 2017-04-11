@@ -4,11 +4,22 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<style>
+    #feature img {
+        margin: auto;
+    }
+</style>
+<div class="row">
+
+    <img id="feature" class="img-responsive" src="~/Content/images/logo_background.PNG" />
+
+</div>
 
 <div>
-    <h4>JobPosting</h4>
+    <h1>@Html.DisplayNameFor(model => model.JobTitle)</h1>
     <hr />
+    <iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" 
+            src="@Html.DisplayFor(model => model.JobPostingFileName)" frameborder="1" scrolling="auto" height="1100" width="850"></iframe>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.JobTitle)
