@@ -20,7 +20,7 @@ namespace CSDHRProject.Models
         public int Id { get; set; }
         public virtual ApplicationUser User{ get; set; }
         public virtual Project Project { get; set; }
-        public bool Manager { get; set; }
+        
 
     }
 }
