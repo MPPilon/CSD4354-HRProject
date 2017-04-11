@@ -3,7 +3,7 @@
 @using Microsoft.AspNet.Identity.Owin;
 
 @{
-    ViewBag.Title = "PayrollHome";
+    ViewBag.Title = "Payroll";
     var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
 }
 
