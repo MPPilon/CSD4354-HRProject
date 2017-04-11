@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create Claim</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -55,5 +55,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to your claims", "Index", new { }, new { @class = "btn btn-sm btn-primary" })
 </div>
