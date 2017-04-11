@@ -279,6 +279,7 @@
     <Content Include="Views\Project\Details.cshtml" />
     <Content Include="Views\Project\Edit.cshtml" />
     <Content Include="Views\Project\Index.cshtml" />
+    <Content Include="Views\Project\ProjectInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />
