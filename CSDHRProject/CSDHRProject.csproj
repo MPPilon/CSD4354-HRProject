@@ -280,6 +280,7 @@
     <Content Include="Views\NewHire\Details.cshtml" />
     <Content Include="Views\NewHire\Edit.cshtml" />
     <Content Include="Views\NewHire\Index.cshtml" />
+    <Content Include="Views\NewHire\NewHireDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />
