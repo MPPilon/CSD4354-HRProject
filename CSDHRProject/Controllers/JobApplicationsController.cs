@@ -123,5 +123,24 @@ namespace CSDHRProject.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+  
+
+        // POST: JobApplications/Details/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details([Bind(Include = "ApplicantStatus")] JobApplication jobApplication)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(jobApplication).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(jobApplication);
+        }
     }
 }

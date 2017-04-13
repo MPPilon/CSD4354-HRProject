@@ -1,10 +1,15 @@
 ﻿@model IEnumerable<CSDHRProject.Models.JobApplication>
-
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Job Applicants";
+    var appUser = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+    var manager = appUser != null && appUser.manager;
 }
 
 <h2>Index</h2>
+
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -32,7 +37,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.ApplicantFirstName)
@@ -53,9 +59,17 @@
             @Html.DisplayFor(modelItem => item.ApplicantStatus)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.JobApplicationId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.JobApplicationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.JobApplicationId })
+           
+           
+          
+            @{  if (manager)
+                {
+                 
+                    @:| @Html.ActionLink("Details", "Details",  new { id = item.JobApplicationId})
+
+                }
+                }
+
         </td>
     </tr>
 }
