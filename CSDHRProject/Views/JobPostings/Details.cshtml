@@ -16,10 +16,10 @@
 </div>
 
 <div>
-    <h1>@Html.DisplayFor(model => model.JobTitle)</h1>
+    <h1>@Html.DisplayNameFor(model => model.JobTitle)</h1>
     <hr />
     <iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" 
-            src="@Html.DisplayFor(model => model.JobPostingFileName)" frameborder="1" scrolling="auto" height="1100" width="100%"></iframe>
+            src="@Html.DisplayFor(model => model.JobPostingFileName)" frameborder="1" scrolling="auto" height="1100" width="850"></iframe>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.JobTitle)
@@ -54,6 +54,14 @@
         </dd>
 
     </dl>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="form-group">
+            @Html.
+        </div>
+    </div>
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.JobPostingId }) |

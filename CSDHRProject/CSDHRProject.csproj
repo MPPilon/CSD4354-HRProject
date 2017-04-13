@@ -277,8 +277,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\TalentRecruit\jobPost.cshtml" />
-    <Content Include="Views\TalentRecruit\index.cshtml" />
     <Content Include="Views\JobPostings\Create.cshtml" />
     <Content Include="Views\JobPostings\Delete.cshtml" />
     <Content Include="Views\JobPostings\Details.cshtml" />

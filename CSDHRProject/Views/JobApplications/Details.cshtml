@@ -1,11 +1,16 @@
 ﻿@model CSDHRProject.Models.JobApplication
 
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Job Applicants";
+    var appUser = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+    var manager = appUser != null && appUser.manager;
 }
 
 <h2>Details</h2>
-
+@if (manager)
+{
 <div>
     <h4>JobApplication</h4>
     <hr />
@@ -60,6 +65,7 @@
 
     </dl>
 </div>
+}
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.JobApplicationId }) |
     @Html.ActionLink("Back to List", "Index")
