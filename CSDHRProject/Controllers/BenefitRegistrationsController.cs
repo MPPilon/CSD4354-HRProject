@@ -123,5 +123,9 @@ namespace CSDHRProject.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult BenefitSelection()
+        {
+            return RedirectToAction("/Index");
+        }
     }
 }

@@ -1,23 +1,25 @@
 ﻿@model CSDHRProject.Models.BenefitRegistration
-
-<p>Please select one of the options for each section</p>
-
+<h1>Benefit Options</h1>
+<h3>Please select one of the options for each section</h3>
+<p> </p>
 <h4>Realtionship status</h4>
-Single: @Html.RadioButton("Single", "true");
-Family: @Html.RadioButton("Family", "true");
-<p></p>
+Single: @Html.RadioButton("RealtionshipStatus", "true")
+Family: @Html.RadioButton("RealtionshipStatus", "false")
+<p> </p>
 <h4>Benefit type</h4>
-Standard: @Html.RadioButton("Standard", "true");
-Extended: @Html.RadioButton("Extended", "true");
-<p></p>
+Standard: @Html.RadioButton("BenefitType", "true")
+Extended: @Html.RadioButton("BenefitType", "false")
+<p> </p>
 <h4>Dental</h4>
-Dental: @Html.RadioButton("Dental", "true");
-No Dental: @Html.RadioButton("DentalNone", "true");
-<p></p>
+Dental: @Html.RadioButton("Dental", "true")
+No Dental: @Html.RadioButton("Dental", "false")
+<p> </p>
 <h4>Optical</h4>
-Optical: @Html.RadioButton("Optical", "true");
-No Optical: @Html.RadioButton("OpticalNone", "true");
-<p></p>
+Optical: @Html.RadioButton("Optical", "true")
+No Optical: @Html.RadioButton("Optical", "false")
+<p> </p>
 <h4>Paramedical</h4>
-Paramedical: @Html.RadioButton("Paramedical", "true");
-No Paramedical: @Html.RadioButton("ParamedicalNone", "true");
+Paramedical: @Html.RadioButton("Paramedical", "true")
+No Paramedical: @Html.RadioButton("Paramedical", "false")
+<p> </p>
+@Html.ActionLink("Register", "BenefitSelection")
