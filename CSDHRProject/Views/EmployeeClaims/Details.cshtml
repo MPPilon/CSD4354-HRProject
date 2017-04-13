@@ -46,5 +46,6 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("View Claim", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
