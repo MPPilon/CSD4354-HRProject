@@ -17,45 +17,68 @@
 
 <div>
     <h1>@Html.DisplayFor(model => model.JobTitle)</h1>
+    <div class="col-lg-6">
+        <h4>Deadline: @Html.DisplayFor(model => model.JobPostingDeadline)</h4>
+    </div>
+    <div class="col-lg-6">
+        <h4>Department: @Html.DisplayFor(model => model.JobDepartmentName)</h4>
+    </div>
+    <br />
     <hr />
-    <iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" 
-            src="@Html.DisplayFor(model => model.JobPostingFileName)" frameborder="1" scrolling="auto" height="1100" width="100%"></iframe>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.JobTitle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.JobTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.JobPostingDeadline)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.JobPostingDeadline)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.JobDepartmentName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.JobDepartmentName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.JobPostingFileName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.JobPostingFileName)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.JobPostingId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    <div class="col-lg-12">
+        <iframe id="fred" style="border:1px solid black" title="PDF in an i-Frame"
+                src="@Html.DisplayFor(model => model.JobPostingFileName)" frameborder="1"
+                scrolling="auto" height="1100" width="100%"></iframe>
+    </div>
+    <br /><br /><br /><br />
+    <div class="col-lg-12 jobApplicationSubmitForm">
+        <form>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label for="firstNamelbl" class="col-2 col-form-label">First Name:</label>
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" value="Your damn first name bruh!" id="example-text-input">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label for="lastNamelbl" class="col-2 col-form-label">Last Name:</label>
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" value="Your damn last name bruh!" id="example-text-input">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label for="emaillbl">Email address</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else. LOL Did you just believe that?</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label for="resumeFilelbl">Resume: </label>
+                </div>
+                <div class="col-md-9">
+                    <input type="file" class="form-control-file" id="resumeFile" aria-describedby="fileHelp">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label for="coverLetterFilelbl">Cover Letter: </label>
+                </div>
+                <div class="col-md-9">
+                    <input type="file" class="form-control-file" id="coverLetterFile" aria-describedby="fileHelp">
+                </div>
+            </div>
+            <div class="form-group row jobAppBtn">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-primary">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
