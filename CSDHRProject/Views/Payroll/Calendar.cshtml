@@ -1,4 +1,5 @@
-﻿@model IEnumerable<CSDHRProject.Models.PayrollModels>
+﻿@model CSDHRProject.Models.PayrollModels
+
 @using Microsoft.AspNet.Identity;
 @using Microsoft.AspNet.Identity.Owin;
 
@@ -7,11 +8,11 @@
     var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
 }
 
-<h2>@user.UserName's Calendar</h2>
+@*<h2>@user.UserName 's Calendar</h2>*@
 
 <br />
 
-@* Radio Buttons *@
+@* Radio Buttonns *@
 <p>
     Use buttons to display by calendar type
 </p>
@@ -19,44 +20,24 @@
 <label>@Html.RadioButton("Calendar", "Project", new { id = "isProject" })Project Calendar</label>
 
 @* Dropdown Project Selector *@
-<div class="form-group">
-    @*@Html.LabelFor(model => model.Project)
-        @Html.DropDownListFor(model => model.ProjectName, Model.ProjectName, "- Please select a Project -", new { @class = "form-control}" })*@
+@*<div class="form-group">
+    @Html.LabelFor(model => model.Project)
+        @Html.DropDownListFor(model => model.ProjectName, Model.ProjectName, "- Please select a Project -", new { @class = "form-control}" })
 
-    @*@Html.DropDownList("Project", ViewData["projects"] as List<SelectListItem>)*@
+    @Html.DropDownList("Project", ViewData["LoadProjects"] as List<SelectListItem>)
 
-    @Html.EditorFor(model => model.Project)
+    @Html.EditorFor(model => model.Project, new { htmlAttributes = new { @class = "form-control" } }));
 </div>
-<button type="submit" class="btn btn-primary"> Load Calendar </button>
+<button type="submit" class="btn btn-primary"> Load Calendar </button>*@
 
 <br />
 <p>Click on the day to add an entry to your calendar</p>
 
 <br />
 @* Enter Calendar here *@
-<form id="form1" runat="server">
+@{Html.RenderAction("Calendar2");}
 
-    <asp:Calendar id="calendar1" runat="server">
-
-        <OtherMonthDayStyle ForeColor="LightGray">
-        </OtherMonthDayStyle>
-
-        <TitleStyle BackColor="Blue"
-                    ForeColor="White">
-        </TitleStyle>
-
-        <DayStyle BackColor="gray">
-        </DayStyle>
-
-        <SelectedDayStyle BackColor="LightGray"
-                          Font-Bold="True">
-        </SelectedDayStyle>
-
-    </asp:Calendar>
-
-</form>
-
-<table style="width: 95%; border: 0px; padding: 0px;" id="display">
+@*<table style="width: 95%; border: 0px; padding: 0px;" id="display">
     <tr>
         <td id="contentCol" style="vertical-align: top">
             <br />
@@ -109,8 +90,7 @@
 
         </td>
     </tr>
-</table>
-
+</table>*@
 
 <div>
     @Html.ActionLink("Back to List", "Index")

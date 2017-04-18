@@ -23,7 +23,7 @@ namespace CSDHRProject.Models
 
         public String Position { get; set; }
 
-        public String Project { get; set; }
+        public int Project { get; set; }
 
         [Display(Name="Project Name")]
         public String ProjectName { get; set; }
