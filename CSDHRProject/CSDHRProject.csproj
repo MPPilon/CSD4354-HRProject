@@ -217,6 +217,7 @@
     <Content Include="App_Data\aspnet-CSDHRProject-20170321101024_log.ldf">
       <DependentUpon>aspnet-CSDHRProject-20170321101024.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\Benefit.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
