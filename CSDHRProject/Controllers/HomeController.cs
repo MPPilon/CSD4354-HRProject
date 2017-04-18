@@ -18,7 +18,7 @@ namespace CSDHRProject.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-            var userId = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId()).
+            //var userId = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId()).
             return View();
         }
 
