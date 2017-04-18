@@ -12,34 +12,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Single)
+            @Html.DisplayNameFor(model => model.RealtionshipStatus)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Family)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Standard)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Extended)
+            @Html.DisplayNameFor(model => model.BenefitType)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Dental)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DentalNone)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Optical)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OpticalNone)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Paramedical)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParamedicalNone)
         </th>
         <th></th>
     </tr>
@@ -47,34 +32,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Single)
+            @Html.DisplayFor(modelItem => item.RealtionshipStatus)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Family)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Standard)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Extended)
+            @Html.DisplayFor(modelItem => item.BenefitType)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Dental)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DentalNone)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Optical)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.OpticalNone)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Paramedical)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParamedicalNone)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

@@ -46,7 +46,7 @@ namespace CSDHRProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RealtionshipStatus,BenefitType,Dental,,Optical,,Paramedical")] BenefitRegistration benefitRegistration)
+        public ActionResult Create([Bind(Include = "Id,RealtionshipStatus,BenefitType,Dental,Optical,Paramedical")] BenefitRegistration benefitRegistration)
         {
             if (ModelState.IsValid)
             {
