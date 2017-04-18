@@ -13,6 +13,7 @@ namespace CSDHRProject.Models
         public Double Amount { get; set; }
         public DateTime Date { get; set; }
         public String Service { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 
     public class Address

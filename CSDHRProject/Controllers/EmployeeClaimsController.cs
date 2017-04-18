@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CSDHRProject.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace CSDHRProject.Controllers
 {
@@ -17,7 +19,9 @@ namespace CSDHRProject.Controllers
         // GET: EmployeeClaims
         public ActionResult Index()
         {
-            return View(db.EmployeeClaims.ToList());
+            var appUser = this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+            var claims = db.EmployeeClaims.Where(x => x.User.Id == appUser.Id).ToList();
+            return View();
         }
 
         // GET: EmployeeClaims/Details/5
@@ -50,6 +54,8 @@ namespace CSDHRProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                var appUser = this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+                employeeClaim.User = appUser;
                 db.EmployeeClaims.Add(employeeClaim);
                 db.SaveChanges();
                 return RedirectToAction("Index");
