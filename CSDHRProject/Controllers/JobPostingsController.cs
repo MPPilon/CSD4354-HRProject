@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CSDHRProject.Models;
+using System.IO;
 
 namespace CSDHRProject.Controllers
 {
@@ -56,6 +57,29 @@ namespace CSDHRProject.Controllers
             }
 
             return View(jobPosting);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateJobPosting(JobEditViewModel jevm)
+        {
+            JobPosting jobPosting = jevm.Item;
+            if (ModelState.IsValid)
+            {
+                if(jevm.JobPostFile != null && jevm.JobPostFile.ContentLength > 0)
+                {
+                    var jobFolder = "/Content/JobPostings/";
+                    var filename = DateTime.Now.ToBinary().ToString("X") + Path.GetFileName(jevm.JobPostFile.FileName);
+                    var path = Path.Combine(Server.MapPath("~" + jobFolder), filename);
+                    jevm.JobPostFile.SaveAs(path);
+                    jevm.Item.JobPostingFileName = jobFolder + filename; 
+                }
+                db.JobPostings.Add(jobPosting);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
         }
 
         // GET: JobPostings/Edit/5
