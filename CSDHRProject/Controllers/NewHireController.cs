@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
+using System.Drawing;
 using CSDHRProject.Models;
 
 namespace CSDHRProject.Controllers
@@ -70,7 +72,7 @@ namespace CSDHRProject.Controllers
             {
                 return HttpNotFound();
             }
-            return View(newHireModel);
+            return View(new NewHireEditViewModel { NewHire = newHireModel });
         }
 
         // POST: NewHire/Edit/5
@@ -78,15 +80,29 @@ namespace CSDHRProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Sin,BenefitNumber,RateOfPay,VacationDays,SickDays,BenefitCertificateFileName,TrainingCertificateFileName")] NewHireModel newHireModel)
+        public ActionResult Edit([Bind(Include = "Item, File")] NewHireEditViewModel nhvm)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(newHireModel).State = EntityState.Modified;
+                if (nhvm.BenefitFile != null && nhvm.TrainingFile != null && nhvm.BenefitFile.ContentLength > 0 && nhvm.TrainingFile.ContentLength > 0)
+                {
+                    var fileFolder = "fileDocuments";
+                    var BenefitFileName = DateTime.Now.ToBinary().ToString("X") + Path.GetFileName(nhvm.BenefitFile.FileName);
+                    var TrainingFileName = DateTime.Now.ToBinary().ToString("X") + Path.GetFileName(nhvm.TrainingFile.FileName);
+                    var path1 = Path.Combine(Server.MapPath("~" + fileFolder), BenefitFileName);
+                    var path2 = Path.Combine(Server.MapPath("~" + fileFolder), TrainingFileName);
+                    nhvm.BenefitFile.SaveAs(path1);
+                    nhvm.TrainingFile.SaveAs(path2);
+                    nhvm.NewHire.BenefitCertificateFileName = fileFolder + BenefitFileName;
+                    nhvm.NewHire.TrainingCertificateFileName = fileFolder + TrainingFileName;
+
+                }
+                db.Entry(nhvm.NewHire.BenefitCertificateFileName).State = EntityState.Modified;
+                db.Entry(nhvm.NewHire.TrainingCertificateFileName).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(newHireModel);
+            return View(nhvm);
         }
 
         // GET: NewHire/Delete/5

@@ -23,6 +23,7 @@ namespace CSDHRProject.Models
     
     public class NewHireEditViewModel
     {
+        public NewHireModel NewHire { get; set; }
         public HttpPostedFileBase BenefitFile { get; set; }
         public HttpPostedFileBase TrainingFile { get; set; }
     }
