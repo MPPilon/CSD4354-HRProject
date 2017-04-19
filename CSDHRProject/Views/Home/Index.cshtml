@@ -3,52 +3,23 @@
 }
 <style>
 
-    #feature img {
-        margin:auto;
-    }
-</style>
-<div class="row">
-   
-    <img id="feature" class="img-responsive" src="~/Content/images/logo_background.PNG" />
-    
-</div>
-
 <div class="row">
     <div class="col-md-4">
-        <br />
-        <h3>Business and Marketing</h3>
+        <h2>Benefit Selection</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            This page will allow you to select all of the options for your benefits.
         </p>
-        <br />
-        <h3>Legal and Human Resources</h3>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        
+        <p><a class="btn btn-default" href="/BenefitRegistrations/Create">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <br />
-        <img class="img-responsive" src="https://www.justinmind.com/usernote/tests/24805739/24812601/24812603/images/717978ba-0f09-419c-873e-881069c87794.png" />
+        <h2>Benefit Claim</h2>
+        <p>This page will allow you to make a claim with your benefits.</p>
+        <p><a class="btn btn-default" href="/EmployeeClaims/Create">Learn more &raquo;</a></p>
     </div>
+    @*make this only visible to admins*@
     <div class="col-md-4">
-        <br />
-        <h3>Network Engineers and Data Scientists</h3>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <br />
-        <h3>Developers and Consultants</h3>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
+        <h2>View Claims</h2>
+        <p>This page will allow you to view the claims that have been made by employees.</p>
+        <p><a class="btn btn-default" href="/EmployeeClaims/Index">Learn more &raquo;</a></p>
     </div>
 </div>

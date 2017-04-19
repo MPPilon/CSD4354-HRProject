@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CSDHRProject.Models.BenefitRegistration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RealtionshipStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BenefitType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dental)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Optical)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paramedical)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RealtionshipStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BenefitType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dental)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Optical)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paramedical)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
