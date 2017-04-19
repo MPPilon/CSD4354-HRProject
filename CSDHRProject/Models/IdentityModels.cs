@@ -22,6 +22,14 @@ namespace CSDHRProject.Models
         public bool role { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
+        public string Sin { get; set; }
+        public string BenefitNumber { get; set; }
+        public double RateOfPay { get; set; }
+ 
+        public int VacationDays { get; set; }
+        public int SickDays { get; set; }
+        public string BenefitCertificateFileName { get; set; }
+        public string TrainingCertificateFileName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -36,7 +44,7 @@ namespace CSDHRProject.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<CSDHRProject.Models.NewHireModel> NewHireModels { get; set; }
+        public System.Data.Entity.DbSet<CSDHRProject.Models.RegisterViewModel> NewHireModels { get; set; }
 
         //Insert DbSet variables (Table Names!) here in the following format:
         // public DbSet<%MODEL_NAME%> %TABLE_NAME% { get; set; }

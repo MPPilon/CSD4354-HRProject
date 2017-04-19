@@ -19,7 +19,7 @@ namespace CSDHRProject.Controllers
         // GET: NewHire
         public ActionResult Index()
         {
-            return View(db.NewHireModels.ToList());
+            return View(db.Users.ToList());
         }
 
         // GET: NewHire/Details/5
@@ -29,7 +29,7 @@ namespace CSDHRProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NewHireModel newHireModel = db.NewHireModels.Find(id);
+            RegisterViewModel newHireModel = db.NewHireModels.Find(id);
             if (newHireModel == null)
             {
                 return HttpNotFound();
@@ -48,7 +48,7 @@ namespace CSDHRProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Sin,BenefitNumber,RateOfPay,VacationDays,SickDays,BenefitCertificateFileName,TrainingCertificateFileName")] NewHireModel newHireModel)
+        public ActionResult Create([Bind(Include = "Id,Name,Sin,BenefitNumber,RateOfPay,VacationDays,SickDays,BenefitCertificateFileName,TrainingCertificateFileName")] RegisterViewModel newHireModel)
         {
             if (ModelState.IsValid)
             {
@@ -67,12 +67,12 @@ namespace CSDHRProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NewHireModel newHireModel = db.NewHireModels.Find(id);
-            if (newHireModel == null)
+            ApplicationUser user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(new NewHireEditViewModel { NewHire = newHireModel });
+            return View(new NewHireEditViewModel { User = user });
         }
 
         // POST: NewHire/Edit/5
@@ -93,12 +93,12 @@ namespace CSDHRProject.Controllers
                     var path2 = Path.Combine(Server.MapPath("~" + fileFolder), TrainingFileName);
                     nhvm.BenefitFile.SaveAs(path1);
                     nhvm.TrainingFile.SaveAs(path2);
-                    nhvm.NewHire.BenefitCertificateFileName = fileFolder + BenefitFileName;
-                    nhvm.NewHire.TrainingCertificateFileName = fileFolder + TrainingFileName;
+                    nhvm.User.BenefitCertificateFileName = fileFolder + BenefitFileName;
+                    nhvm.User.TrainingCertificateFileName = fileFolder + TrainingFileName;
 
                 }
-                db.Entry(nhvm.NewHire.BenefitCertificateFileName).State = EntityState.Modified;
-                db.Entry(nhvm.NewHire.TrainingCertificateFileName).State = EntityState.Modified;
+                db.Entry(nhvm.User.BenefitCertificateFileName).State = EntityState.Modified;
+                db.Entry(nhvm.User.TrainingCertificateFileName).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -112,7 +112,7 @@ namespace CSDHRProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NewHireModel newHireModel = db.NewHireModels.Find(id);
+           RegisterViewModel newHireModel = db.NewHireModels.Find(id);
             if (newHireModel == null)
             {
                 return HttpNotFound();
@@ -125,7 +125,7 @@ namespace CSDHRProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            NewHireModel newHireModel = db.NewHireModels.Find(id);
+            RegisterViewModel newHireModel = db.NewHireModels.Find(id);
             db.NewHireModels.Remove(newHireModel);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -1,5 +1,4 @@
-﻿@model IEnumerable<CSDHRProject.Models.NewHireModel>
-
+﻿@model IEnumerable < CSDHRProject.Models.ApplicationUser >
 @{
     ViewBag.Title = "Index";
 }
@@ -10,10 +9,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sin)
+            @Html.DisplayNameFor(model => model.firstname )
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BenefitNumber)
@@ -39,10 +35,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sin)
+            @Html.DisplayFor(modelItem => item.firstname )
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BenefitNumber)
