@@ -19,7 +19,9 @@ namespace CSDHRProject.Models
 
         //Custom User attributes
         public bool manager { get; set; }
-        public bool admin { get; set; }
+        public bool role { get; set; }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -33,6 +35,9 @@ namespace CSDHRProject.Models
         {
             return new ApplicationDbContext();
         }
+
+
+        public System.Data.Entity.DbSet<CSDHRProject.Models.PayrollModels> PayrollModels { get; set; }
 
         public System.Data.Entity.DbSet<CSDHRProject.Models.BenefitRegistration> BenefitRegistrations { get; set; }
 
