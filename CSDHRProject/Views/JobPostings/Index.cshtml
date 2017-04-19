@@ -1,0 +1,120 @@
+﻿@model IEnumerable<CSDHRProject.Models.JobPosting>
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+
+@{
+    ViewBag.Title = "Job Postings";
+    var appUser = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+    var isManager = appUser != null && appUser.manager;
+}
+
+<style>
+    #feature img {
+        margin: auto;
+    }
+</style>
+<div class="row">
+
+    <img id="feature" class="img-responsive" src="~/Content/images/logo_background.PNG" />
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <br />
+        <h3>Business and Marketing</h3>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <br />
+        <h3>Legal and Human Resources</h3>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+
+    </div>
+    <div class="col-md-4">
+        <br />
+        <img class="img-responsive" src="https://www.justinmind.com/usernote/tests/24805739/24812601/24812603/images/717978ba-0f09-419c-873e-881069c87794.png" />
+    </div>
+    <div class="col-md-4">
+        <br />
+        <h3>Network Engineers and Data Scientists</h3>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <br />
+        <h3>Developers and Consultants</h3>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+    </div>
+</div>
+
+@if (isManager) {
+    <button type="button" class="btn btn-default">
+        @Html.ActionLink("Create New Posting", "Create")
+    </button>
+}
+
+    <div class="row tableBack">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 postingTable"  id="tableT">
+            <div class="table-responsive">
+                <table class="table table-hover tableHeader">
+                    <tr>
+                        <th>
+                            Job Title/Position
+                        </th>
+                        <th>
+                            Department
+                        </th>
+                        <th>
+                            Application Deadline Date
+                        </th>
+                        <th>
+                            Details
+                        </th>
+                            @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.JobTitle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.JobDepartmentName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.JobPostingDeadline)
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            @Html.ActionLink("View Details", "Details", new { id = item.JobPostingId })
+                                        </button>
+                                        @if (isManager)
+                                        {
+                                            <button type="button" class="btn btn-warning">
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.JobPostingId })
+                                            </button>
+                                            <button type="button" class="btn btn-danger">
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.JobPostingId })
+                                            </button>
+                                        }
+                                    </td>
+                                </tr>
+                                }
+                  </table>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+
+

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CSDHRProject.Models.JobApplication>
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+@{
+    ViewBag.Title = "Job Applicants";
+    var appUser = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+    var manager = appUser != null && appUser.manager;
+}
+
+<h2>Index</h2>
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicantFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicantLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicantEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResumeFileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoverLetterFileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicantStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicantFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicantLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicantEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResumeFileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoverLetterFileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicantStatus)
+        </td>
+        <td>
+           
+           
+          
+            @{  if (manager)
+                {
+                 
+                    @:| @Html.ActionLink("Details", "Details",  new { id = item.JobApplicationId})
+
+                }
+                }
+
+        </td>
+    </tr>
+}
+
+</table>
