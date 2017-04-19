@@ -80,25 +80,29 @@ namespace CSDHRProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Item, File")] NewHireEditViewModel nhvm)
+        public ActionResult Edit([Bind(Include = "User, BenefitFile, TrainingFile")] NewHireEditViewModel nhvm)
         {
             if (ModelState.IsValid)
             {
-                if (nhvm.BenefitFile != null && nhvm.TrainingFile != null && nhvm.BenefitFile.ContentLength > 0 && nhvm.TrainingFile.ContentLength > 0)
-                {
-                    var fileFolder = "fileDocuments";
-                    var BenefitFileName = DateTime.Now.ToBinary().ToString("X") + Path.GetFileName(nhvm.BenefitFile.FileName);
-                    var TrainingFileName = DateTime.Now.ToBinary().ToString("X") + Path.GetFileName(nhvm.TrainingFile.FileName);
-                    var path1 = Path.Combine(Server.MapPath("~" + fileFolder), BenefitFileName);
-                    var path2 = Path.Combine(Server.MapPath("~" + fileFolder), TrainingFileName);
-                    nhvm.BenefitFile.SaveAs(path1);
-                    nhvm.TrainingFile.SaveAs(path2);
-                    nhvm.User.BenefitCertificateFileName = fileFolder + BenefitFileName;
-                    nhvm.User.TrainingCertificateFileName = fileFolder + TrainingFileName;
+                //var user = db.Users.Find(nhvm.User.Id);
+                //user.
+                var fileFolder = "fileDocuments";
 
+                if (nhvm.BenefitFile != null && nhvm.BenefitFile.ContentLength > 0 )
+                {
+                    var BenefitFileName = DateTime.Now.ToBinary().ToString("X") + Path.GetFileName(nhvm.BenefitFile.FileName);
+                    var path1 = Path.Combine(Server.MapPath("~"), fileFolder, BenefitFileName);
+                    nhvm.BenefitFile.SaveAs(path1);
+                    nhvm.User.BenefitCertificateFileName = "/" + fileFolder + "/" + BenefitFileName;
                 }
-                db.Entry(nhvm.User.BenefitCertificateFileName).State = EntityState.Modified;
-                db.Entry(nhvm.User.TrainingCertificateFileName).State = EntityState.Modified;
+                if ( nhvm.TrainingFile != null && nhvm.TrainingFile.ContentLength > 0)
+                {
+                    var TrainingFileName = DateTime.Now.ToBinary().ToString("X") + Path.GetFileName(nhvm.TrainingFile.FileName);
+                    var path2 = Path.Combine(Server.MapPath("~"), fileFolder, TrainingFileName);
+                    nhvm.TrainingFile.SaveAs(path2);
+                    nhvm.User.TrainingCertificateFileName = "/" + fileFolder + "/" + TrainingFileName;
+                }
+                db.Entry(nhvm.User).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
