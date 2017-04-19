@@ -22,3 +22,15 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* CSS for Job Application form for Job Detail page*/
+.jobApplicationSubmitForm {
+    padding-left: 20%;
+    padding-right: 20%;
+    display: inline-block;
+    border: 5px solid black;
+}
+
+.jobAppBtn {
+    padding-left: 50%;
+}

@@ -44,6 +44,10 @@ namespace CSDHRProject.Models
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<CSDHRProject.Models.JobPosting> JobPostings { get; set; }
+
+        public System.Data.Entity.DbSet<CSDHRProject.Models.JobApplication> JobApplications { get; set; }
+
         public System.Data.Entity.DbSet<CSDHRProject.Models.RegisterViewModel> NewHireModels { get; set; }
 
         //Insert DbSet variables (Table Names!) here in the following format:

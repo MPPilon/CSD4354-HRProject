@@ -1,0 +1,68 @@
+﻿@model CSDHRProject.Models.JobPosting
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    #feature img {
+        margin: auto;
+    }
+</style>
+<div class="row">
+
+    <img id="feature" class="img-responsive" src="~/Content/images/logo_background.PNG" />
+
+</div>
+
+<div>
+    <h1>@Html.DisplayFor(model => model.JobTitle)</h1>
+    <div class="col-lg-6">
+        <h4>Deadline: @Html.DisplayFor(model => model.JobPostingDeadline)</h4>
+    </div>
+    <div class="col-lg-6">
+        <h4>Department: @Html.DisplayFor(model => model.JobDepartmentName)</h4>
+    </div>
+    <br />
+    <hr />
+    <iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" 
+            src="@Html.DisplayFor(model => model.JobPostingFileName)" frameborder="1" scrolling="auto" height="1100" width="100%"></iframe>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobPostingDeadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobPostingDeadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobDepartmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobDepartmentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobPostingFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobPostingFileName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobPostingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
