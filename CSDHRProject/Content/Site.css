@@ -48,6 +48,10 @@ textarea {
     border-left: 1px solid white;
 }
 
+.tableHeader {
+    margin-bottom: 0;
+}
+
 .tableHeader td{
     border: 1px solid black;
 }
@@ -65,4 +69,12 @@ textarea {
 .tableBack {
     padding-top: 5%;
     padding-bottom: 5%;
+}
+
+.createPosting p {
+    font-weight: 900;
+}
+
+.createPosting input {
+    width: 100%;
 }
