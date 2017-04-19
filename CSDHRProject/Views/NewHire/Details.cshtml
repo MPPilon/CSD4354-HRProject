@@ -1,0 +1,82 @@
+﻿@model CSDHRProject.Models.NewHireModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NewHireModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BenefitNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BenefitNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RateOfPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RateOfPay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VacationDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VacationDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SickDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SickDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BenefitCertificateFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BenefitCertificateFileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingCertificateFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingCertificateFileName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -19,7 +19,17 @@ namespace CSDHRProject.Models
 
         //Custom User attributes
         public bool manager { get; set; }
-        public bool admin { get; set; }
+        public bool role { get; set; }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
+        public string Sin { get; set; }
+        public string BenefitNumber { get; set; }
+        public double RateOfPay { get; set; }
+ 
+        public int VacationDays { get; set; }
+        public int SickDays { get; set; }
+        public string BenefitCertificateFileName { get; set; }
+        public string TrainingCertificateFileName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -34,6 +44,12 @@ namespace CSDHRProject.Models
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<CSDHRProject.Models.JobPosting> JobPostings { get; set; }
+
+        public System.Data.Entity.DbSet<CSDHRProject.Models.JobApplication> JobApplications { get; set; }
+
+        public System.Data.Entity.DbSet<CSDHRProject.Models.RegisterViewModel> NewHireModels { get; set; }
+        
 
         public System.Data.Entity.DbSet<CSDHRProject.Models.Project> Projects { get; set; }
         public System.Data.Entity.DbSet<CSDHRProject.Models.ProjectUser> ProjectUsers { get; set; }

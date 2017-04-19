@@ -151,7 +151,11 @@ namespace CSDHRProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, BenefitCertificateFileName = model.User.BenefitCertificateFileName, TrainingCertificateFileName = model.User.TrainingCertificateFileName
+                    , SickDays = model.User.SickDays, VacationDays = model.User.VacationDays, RateOfPay = model.User.RateOfPay, BenefitNumber = model.User.BenefitNumber, 
+                    Sin = model.User.Sin, firstname = model.User.firstname,
+                    
+                    };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
