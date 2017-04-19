@@ -7,134 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CSDHRProject.Models;
-using System.IO;
 
 namespace CSDHRProject.Controllers
 {
-    public class JobPostingsController : Controller
+    public class ProjectController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: JobPostings
+        // GET: Project_Model
         public ActionResult Index()
         {
-            return View(db.JobPostings.ToList());
+            return View(db.Projects.ToList());
         }
 
-        // GET: JobPostings/Details/5
+        // GET: Project_Model/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            JobPosting jobPosting = db.JobPostings.Find(id);
-            if (jobPosting == null)
+            Project project_Model = db.Projects.Find(id);
+            if (project_Model == null)
             {
                 return HttpNotFound();
             }
-            return View(jobPosting);
+            return View(project_Model);
         }
 
-        // GET: JobPostings/Create
+        // GET: Project_Model/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: JobPostings/Create
+        // POST: Project_Model/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "JobPostingId,JobTitle,JobPostingDeadline,JobDepartmentName,JobPostingFileName")] JobPosting jobPosting)
+        public ActionResult Create([Bind(Include = "Id,Title,Date,Description,Author,Lead")] Project project_Model)
         {
             if (ModelState.IsValid)
             {
-                db.JobPostings.Add(jobPosting);
+                db.Projects.Add(project_Model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(jobPosting);
+            return View(project_Model);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateJobPosting(JobEditViewModel jevm)
-        {
-            JobPosting jobPosting = jevm.Item;
-            if (ModelState.IsValid)
-            {
-                if(jevm.JobPostFile != null && jevm.JobPostFile.ContentLength > 0)
-                {
-                    var jobFolder = "/Content/JobPostings/";
-                    var filename = DateTime.Now.ToBinary().ToString("X") + Path.GetFileName(jevm.JobPostFile.FileName);
-                    var path = Path.Combine(Server.MapPath("~" + jobFolder), filename);
-                    jevm.JobPostFile.SaveAs(path);
-                    jevm.Item.JobPostingFileName = jobFolder + filename; 
-                }
-                db.JobPostings.Add(jobPosting);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return RedirectToAction("Index");
-        }
-
-        // GET: JobPostings/Edit/5
+        // GET: Project_Model/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            JobPosting jobPosting = db.JobPostings.Find(id);
-            if (jobPosting == null)
+            Project project_Model = db.Projects.Find(id);
+            if (project_Model == null)
             {
                 return HttpNotFound();
             }
-            return View(jobPosting);
+            return View(project_Model);
         }
 
-        // POST: JobPostings/Edit/5
+        // POST: Project_Model/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "JobPostingId,JobTitle,JobPostingDeadline,JobDepartmentName,JobPostingFileName")] JobPosting jobPosting)
+        public ActionResult Edit([Bind(Include = "Id,Title,Date,Description,Author,Lead")] Project project_Model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(jobPosting).State = EntityState.Modified;
+                db.Entry(project_Model).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(jobPosting);
+            return View(project_Model);
         }
 
-        // GET: JobPostings/Delete/5
+        // GET: Project_Model/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            JobPosting jobPosting = db.JobPostings.Find(id);
-            if (jobPosting == null)
+            Project project_Model = db.Projects.Find(id);
+            if (project_Model == null)
             {
                 return HttpNotFound();
             }
-            return View(jobPosting);
+            return View(project_Model);
         }
 
-        // POST: JobPostings/Delete/5
+        // POST: Project_Model/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            JobPosting jobPosting = db.JobPostings.Find(id);
-            db.JobPostings.Remove(jobPosting);
+            Project project_Model = db.Projects.Find(id);
+            db.Projects.Remove(project_Model);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
