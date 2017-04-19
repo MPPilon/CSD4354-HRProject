@@ -1,7 +1,11 @@
 ﻿@model IEnumerable<CSDHRProject.Models.JobPosting>
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
 
 @{
     ViewBag.Title = "Job Postings";
+    var appUser = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+    var isManager = appUser != null && appUser.manager;
 }
 
 <style>
@@ -55,9 +59,12 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-default">
-    @Html.ActionLink("Create New Posting", "Create")
-</button>
+@if (isManager) {
+    <button type="button" class="btn btn-default">
+        @Html.ActionLink("Create New Posting", "Create")
+    </button>
+}
+
     <div class="row tableBack">
         <div class="col-lg-2"></div>
         <div class="col-lg-8 postingTable"  id="tableT">
@@ -92,12 +99,15 @@
                                         <button type="button" class="btn btn-primary">
                                             @Html.ActionLink("View Details", "Details", new { id = item.JobPostingId })
                                         </button>
-                                        <button type="button" class="btn btn-warning">
-                                            @Html.ActionLink("Edit", "Edit", new { id = item.JobPostingId })
-                                        </button>
-                                        <button type="button" class="btn btn-danger">
-                                            @Html.ActionLink("Delete", "Delete", new { id = item.JobPostingId })
-                                        </button>
+                                        @if (isManager)
+                                        {
+                                            <button type="button" class="btn btn-warning">
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.JobPostingId })
+                                            </button>
+                                            <button type="button" class="btn btn-danger">
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.JobPostingId })
+                                            </button>
+                                        }
                                     </td>
                                 </tr>
                                 }
