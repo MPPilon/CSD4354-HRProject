@@ -50,6 +50,15 @@ namespace CSDHRProject.Models
 
         public System.Data.Entity.DbSet<CSDHRProject.Models.RegisterViewModel> NewHireModels { get; set; }
 
+        public System.Data.Entity.DbSet<CSDHRProject.Models.NewHireModel> NewHireModels { get; set; }
+
+        public System.Data.Entity.DbSet<CSDHRProject.Models.BenefitRegistration> BenefitRegistrations { get; set; }
+
+        public System.Data.Entity.DbSet<CSDHRProject.Models.EmployeeClaim> EmployeeClaims { get; set; }
+
+        public System.Data.Entity.DbSet<CSDHRProject.Models.Address> Addresses { get; set; }
+
+
         //Insert DbSet variables (Table Names!) here in the following format:
         // public DbSet<%MODEL_NAME%> %TABLE_NAME% { get; set; }
         //Example:
