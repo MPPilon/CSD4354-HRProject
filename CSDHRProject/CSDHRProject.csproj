@@ -197,6 +197,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressesController.cs" />
+    <Compile Include="Controllers\BenefitRegistrationsController.cs" />
+    <Compile Include="Controllers\EmployeeClaimsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PayrollController.cs" />
@@ -205,6 +208,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BenefitsModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PayrollModels.cs" />
@@ -348,10 +352,23 @@
     <Content Include="Views\Payroll\Reports.cshtml" />
     <Content Include="Views\Payroll\EmployeeTimesheet.cshtml" />
     <Content Include="Views\Payroll\ProjectTimesheet.cshtml" />
+    <Content Include="Views\BenefitRegistrations\Create.cshtml" />
+    <Content Include="Views\BenefitRegistrations\Delete.cshtml" />
+    <Content Include="Views\BenefitRegistrations\Details.cshtml" />
+    <Content Include="Views\BenefitRegistrations\Edit.cshtml" />
+    <Content Include="Views\BenefitRegistrations\Index.cshtml" />
+    <Content Include="Views\EmployeeClaims\Create.cshtml" />
+    <Content Include="Views\EmployeeClaims\Delete.cshtml" />
+    <Content Include="Views\EmployeeClaims\Details.cshtml" />
+    <Content Include="Views\EmployeeClaims\Edit.cshtml" />
+    <Content Include="Views\EmployeeClaims\Index.cshtml" />
+    <Content Include="Views\Addresses\Create.cshtml" />
+    <Content Include="Views\Addresses\Delete.cshtml" />
+    <Content Include="Views\Addresses\Details.cshtml" />
+    <Content Include="Views\Addresses\Edit.cshtml" />
+    <Content Include="Views\Addresses\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
