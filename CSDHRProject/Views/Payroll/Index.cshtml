@@ -4,9 +4,9 @@
 
 @{
     ViewBag.Title = "Payroll";
-    var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+    var userData = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
 }
-<h2>@user.firstname's Payroll Summary</h2>
+<h2>@userData.firstname's Payroll Summary</h2>
 @if (userData != null)
 {
     if (userData.manager)
@@ -52,11 +52,11 @@
                     </a>
                 </td>
                 <td>
-                    @if (user.manager)
+                    @if (userData.manager)
                     {
                         @*Project Report*@
                         @*@Html.ActionLink("Project Report", "Reports")*@
-                        <a href="@Url.Action("ProjectReport", "Payroll/")">
+                        <a href="@Url.Action("Reports", "Payroll/")">
                             <i class="glyphicon glyphicon-file"></i>
                             <span>
                                 <strong>Project Report</strong>
@@ -78,7 +78,7 @@
                     </a>
                 </td>
                 <td>
-                    @if (user.manager)
+                    @if (userData.manager)
                     {
                         @*Employee Report*@
                         @*@Html.ActionLink("Employee Report", "Reports")*@
@@ -95,7 +95,7 @@
             <tr>
                 <td></td>
                 <td>
-                    @if (user.manager)
+                    @if (userData.manager)
                     {
                         @*Project Timesheets*@
                         @*@Html.ActionLink("Project Timesheet", "ProjectTimesheet")*@

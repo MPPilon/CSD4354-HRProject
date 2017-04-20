@@ -4,14 +4,14 @@
 
 @{
     ViewBag.Title = "PayrollHome";
-    var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+    var userData = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
 
 }
 
-<h2>@user.firstname's Timesheet Summary</h2>
+<h2>@userData.firstname's Timesheet Summary</h2>
 
 <div>
-    <p>Employee Name: @user.UserName</p>
+    <p>Employee Name: @userData.UserName</p>
 
 </div>
 
