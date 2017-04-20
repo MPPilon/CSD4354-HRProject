@@ -25,11 +25,15 @@ namespace CSDHRProject.Models
 
         public int Project { get; set; }
 
+        [Display(Name="Hours Worked")]
+        public int HoursWorked { get; set; }
+
         [Display(Name="Project Name")]
         public String ProjectName { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name="Date of Work")]
         public DateTime? TimesheetDate { get; set; }
     }
 }
