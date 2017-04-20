@@ -1,0 +1,57 @@
+﻿@model CSDHRProject.Models.PayrollModels
+
+@{
+    ViewBag.Title = "ProjectTimesheet";
+}
+
+<h2>Project Timesheet</h2>
+
+<div>
+    <h4>PayrollModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManagerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManagerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManagerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManagerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,20 @@
+﻿@model CSDHRProject.Models.PayrollModels
+
+@{
+    ViewBag.Title = "Reports";
+}
+
+<h2>Reports</h2>
+
+<div>
+    @* Radio Buttons *@
+    <p>
+        Use buttons to display report
+    </p>
+    <label>@Html.RadioButton("Reports", "Employee", new { id = "isEmployee" })Employee Report</label>
+    <label>@Html.RadioButton("Reports", "Project", new { id = "isProject" })Project Report</label>
+
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

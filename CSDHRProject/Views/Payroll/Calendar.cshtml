@@ -1,0 +1,43 @@
+﻿@model CSDHRProject.Models.PayrollModels
+
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+
+@{
+    ViewBag.Title = "Calendar";
+    var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+}
+
+<h2>@user.firstname's Calendar</h2>
+
+<br />
+
+@* Radio Buttonns *@
+<p>
+    Use buttons to display by calendar type
+</p>
+<label>@Html.RadioButton("Calendar", "Employee", new { id = "isEmployee" })Employee Calendar</label>
+<br />
+<label>@Html.RadioButton("Calendar", "Project", new { id = "isProject" })Project Calendar</label>
+
+@* Dropdown Project Selector *@
+@*<div class="form-group">
+    @Html.LabelFor(model => model.Project)
+        @Html.DropDownListFor(model => model.ProjectName, Model.ProjectName, "- Please select a Project -", new { @class = "form-control}" })
+
+    @Html.DropDownList("Project", ViewData["LoadProjects"] as List<SelectListItem>)
+
+    @Html.EditorFor(model => model.Project, new { htmlAttributes = new { @class = "form-control" } }));
+</div>
+<button type="submit" class="btn btn-primary"> Load Calendar </button>*@
+
+<br />
+<p>Click on the day to add an entry to your calendar</p>
+
+<br />
+@* Enter Calendar here *@
+@{Html.RenderAction("Calendar2");}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
