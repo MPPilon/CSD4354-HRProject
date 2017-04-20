@@ -70,6 +70,9 @@ namespace CSDHRProject.Models
 
         public System.Data.Entity.DbSet<CSDHRProject.Models.Project> Projects { get; set; }
         public System.Data.Entity.DbSet<CSDHRProject.Models.ProjectUser> ProjectUsers { get; set; }
+
+        public System.Data.Entity.DbSet<CSDHRProject.Models.PayrollModels> PayrollModels { get; set; }
+
         public System.Data.Entity.DbSet<CSDHRProject.Models.BenefitRegistration> BenefitRegistrations { get; set; }
 
         public System.Data.Entity.DbSet<CSDHRProject.Models.EmployeeClaim> EmployeeClaims { get; set; }
