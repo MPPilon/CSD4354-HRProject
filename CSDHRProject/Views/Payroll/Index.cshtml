@@ -1,0 +1,151 @@
+﻿@model IEnumerable<CSDHRProject.Models.PayrollModels>
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+
+@{
+    ViewBag.Title = "Payroll";
+    var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+}
+<h2>@user.firstname's Payroll Summary</h2>
+
+<h6>@Html.ActionLink("Instructions on entering timesheets", "Instructions")</h6>
+<h6>@Html.ActionLink("Payroll Schedule", "Calendar")</h6>
+
+<br />
+
+@* Link Table *@
+<table class="table">
+    <tr>
+        <th>
+            Calendars
+        </th>
+        <th>
+            Timesheets
+        </th>
+        <th>
+            Reports
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @*Employee Calendar*@
+            @*@Html.ActionLink("Employee Calendar", "Calendar")*@
+            <a href="@Url.Action("Calendar", "Payroll/")">
+                <i class="glyphicon glyphicon-calendar"></i>
+                <span>
+                    <strong>Employee Calendar</strong>
+                </span>
+            </a>
+        </td>
+        <td>
+            @*Timesheet Entry*@
+            @*@Html.ActionLink("Add a Timesheet Entry", "TimesheetEntry")*@
+            <a href="@Url.Action("TimesheetEntry", "Payroll/")">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span>
+                    <strong>Add a Timesheet Entry</strong>
+                </span>
+            </a>
+        </td>
+        <td>
+            @if (user.manager)
+            {
+                @*Project Report*@
+                @*@Html.ActionLink("Project Report", "Reports")*@
+                <a href="@Url.Action("ProjectReport", "Payroll/")">
+                    <i class="glyphicon glyphicon-file"></i>
+                    <span>
+                        <strong>Project Report</strong>
+                    </span>
+                </a>
+            }
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            @*Employee Timesheets*@
+            @*@Html.ActionLink("Employee Timesheet", "EmployeeTimesheet")*@
+            <a href="@Url.Action("EmployeeTimesheet", "Payroll/")">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <span>
+                    <strong>Employee Timesheet</strong>
+                </span>
+            </a>
+        </td>
+        <td>
+            @if (user.manager)
+            {
+                @*Employee Report*@
+                @*@Html.ActionLink("Employee Report", "Reports")*@
+                <a href="@Url.Action("Reports", "Payroll/")">
+                    <i class="glyphicon glyphicon-file"></i>
+                    <span>
+                        <strong>Employee Report</strong>
+                    </span>
+                </a>
+            }
+
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            @if (user.manager)
+            {
+                @*Project Timesheets*@
+                @*@Html.ActionLink("Project Timesheet", "ProjectTimesheet")*@
+                <a href="@Url.Action("ProjectTimesheet", "Payroll/")">
+                    <i class="glyphicon glyphicon-list-alt"></i>
+                    <span>
+                        <strong>Project Timesheet</strong>
+                    </span>
+                </a>
+            }
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+<br />
+
+@* Project Table *@
+<table class="table">
+    <tr>
+        <th>
+            Project
+        </th>
+        <th>
+            Enter Hours
+        </th>
+        <th>
+            Hours Entered
+        </th>
+        <th>
+            Hours Approved
+        </th>
+        <th>
+            View Hours
+        </th>
+    </tr>
+    @*@foreach (var project in Model)*@
+    @* { *@
+    <tr>
+        <td></td>
+        <td>
+            @*Enter Hours*@
+            @Html.ActionLink("Enter Hours", "TimesheetEntry")
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+            @*View Hours*@
+            @Html.ActionLink("View Hours", "EmployeeTimesheet")
+        </td>
+    </tr>
+    @* } *@
+</table>
+
+@*@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-info" })
+    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })*@

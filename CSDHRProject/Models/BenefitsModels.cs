@@ -27,6 +27,7 @@ namespace CSDHRProject.Models
 
     public class BenefitRegistration
     {
+        public virtual ApplicationUser User { get; set; }
         public int Id { get; set; }
 
         public Boolean RealtionshipStatus { get; set; }

@@ -240,3 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/CSDHRProject/App_Data/.aspnet-CSDHRProject-20170321101024.mdf.swp
+/CSDHRProject/App_Data/.aspnet-CSDHRProject-20170321101024_BASE_6528.mdf.swp
+/CSDHRProject/App_Data/.aspnet-CSDHRProject-20170321101024_LOCAL_6528.mdf.swp
+/CSDHRProject/App_Data/.aspnet-CSDHRProject-20170321101024_REMOTE_6528.mdf.swp
