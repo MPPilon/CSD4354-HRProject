@@ -1,0 +1,98 @@
+﻿@model CSDHRProject.Models.BenefitRegistration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BenefitRegistration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Single)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Single)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Family)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Family)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Standard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Standard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Extended)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extended)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dental)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dental)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DentalNone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DentalNone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Optical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Optical)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpticalNone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpticalNone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paramedical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paramedical)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParamedicalNone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParamedicalNone)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
