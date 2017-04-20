@@ -8,7 +8,7 @@
     var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
 }
 
-<h2>@user.UserName 's Calendar</h2>
+<h2>@user.firstname's Calendar</h2>
 
 <br />
 

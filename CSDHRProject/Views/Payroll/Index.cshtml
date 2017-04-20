@@ -6,8 +6,7 @@
     ViewBag.Title = "Payroll";
     var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
 }
-
-
+<h2>@user.firstname's Payroll Summary</h2>
 
 <h6>@Html.ActionLink("Instructions on entering timesheets", "Instructions")</h6>
 <h6>@Html.ActionLink("Payroll Schedule", "Calendar")</h6>
@@ -49,14 +48,17 @@
             </a>
         </td>
         <td>
-            @*Project Report*@
-            @*@Html.ActionLink("Project Report", "Reports")*@
-            <a href="@Url.Action("ProjectReport", "Payroll/")">
-                <i class= "glyphicon glyphicon-file"></i>
-                <span>
-                    <strong>Project Report</strong>
-                </span>
-            </a>
+            @if (user.manager)
+            {
+                @*Project Report*@
+                @*@Html.ActionLink("Project Report", "Reports")*@
+                <a href="@Url.Action("ProjectReport", "Payroll/")">
+                    <i class="glyphicon glyphicon-file"></i>
+                    <span>
+                        <strong>Project Report</strong>
+                    </span>
+                </a>
+            }
         </td>
     </tr>
     <tr>
@@ -72,27 +74,34 @@
             </a>
         </td>
         <td>
-            @*Employee Report*@
-            @*@Html.ActionLink("Employee Report", "Reports")*@
-            <a href="@Url.Action("Reports", "Payroll/")">
-                <i class= "glyphicon glyphicon-file"></i>
-                <span>
-                    <strong>Employee Report</strong>
-                </span>
-            </a>
+            @if (user.manager)
+            {
+                @*Employee Report*@
+                @*@Html.ActionLink("Employee Report", "Reports")*@
+                <a href="@Url.Action("Reports", "Payroll/")">
+                    <i class="glyphicon glyphicon-file"></i>
+                    <span>
+                        <strong>Employee Report</strong>
+                    </span>
+                </a>
+            }
+
         </td>
     </tr>
     <tr>
         <td></td>
         <td>
-            @*Project Timesheets*@
-            @*@Html.ActionLink("Project Timesheet", "ProjectTimesheet")*@
-            <a href="@Url.Action("ProjectTimesheet", "Payroll/")">
-                <i class="glyphicon glyphicon-list-alt"></i>
-                <span>
-                    <strong>Project Timesheet</strong>
-                </span>
-            </a>
+            @if (user.manager)
+            {
+                @*Project Timesheets*@
+                @*@Html.ActionLink("Project Timesheet", "ProjectTimesheet")*@
+                <a href="@Url.Action("ProjectTimesheet", "Payroll/")">
+                    <i class="glyphicon glyphicon-list-alt"></i>
+                    <span>
+                        <strong>Project Timesheet</strong>
+                    </span>
+                </a>
+            }
         </td>
         <td></td>
     </tr>
@@ -121,19 +130,19 @@
     </tr>
     @*@foreach (var project in Model)*@
     @* { *@
-        <tr>
-            <td></td>
-            <td>
-                @*Enter Hours*@
-                @Html.ActionLink("Enter Hours", "TimesheetEntry")
-            </td>
-            <td></td>
-            <td></td>
-            <td>
-                @*View Hours*@
-                @Html.ActionLink("View Hours", "EmployeeTimesheet")
-            </td>
-        </tr>
+    <tr>
+        <td></td>
+        <td>
+            @*Enter Hours*@
+            @Html.ActionLink("Enter Hours", "TimesheetEntry")
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+            @*View Hours*@
+            @Html.ActionLink("View Hours", "EmployeeTimesheet")
+        </td>
+    </tr>
     @* } *@
 </table>
 

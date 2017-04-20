@@ -8,15 +8,11 @@
 
 }
 
-<!-- Get this stupid thing to work later -->
-<h2>@user.UserName's Timesheet Summary</h2>
+<h2>@user.firstname's Timesheet Summary</h2>
 
 <div>
     <p>Employee Name: @user.UserName</p>
-    <p>Employee Id: @user.Id</p>
-    <p>Project: @*@user.*@</p>
-    <p>Position: @*@user.*@</p>
-    <p>Manager: @user.manager</p>
+
 </div>
 
 <div>
@@ -42,9 +38,54 @@
             </th>
         </tr>
         <tr>
-
         </tr>
     </table>
+</div>
+<div>
+    <h4>PayrollModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManagerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManagerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManagerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManagerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+    </dl>
 </div>
 <div>
     @Html.ActionLink("Back to List", "Index")
