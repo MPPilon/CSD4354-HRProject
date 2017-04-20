@@ -1,4 +1,4 @@
-﻿@model CSDHRProject.Models.JobApplication
+@model CSDHRProject.Models.ApplicationEditViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -30,48 +30,48 @@
         <div class="form-group">
             <p class="control-label col-md-4">First Name</p>
             <div class="col-md-8">
-                @Html.EditorFor(model => model.ApplicantFirstName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ApplicantFirstName, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Item.ApplicantFirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Item.ApplicantFirstName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <p class="control-label col-md-4">Last Name</p>
             <div class="col-md-8">
-                @Html.EditorFor(model => model.ApplicantLastName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ApplicantLastName, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Item.ApplicantLastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Item.ApplicantLastName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <p class="control-label col-md-4">Email</p>
             <div class="col-md-8">
-                @Html.EditorFor(model => model.ApplicantEmail, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ApplicantEmail, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Item.ApplicantEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Item.ApplicantEmail, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <p class="control-label col-md-4">Resume File</p>
                 <div class="col-md-8">
-                    @Html.EditorFor(model => model.ResumeFileName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ResumeFileName, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.ResumeFile, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ResumeFile, "", new { @class = "text-danger" })
                 </div>
 </div>
 
         <div class="form-group">
             <p class="control-label col-md-4">Cover Letter</p>
                 <div class="col-md-8">
-                    @Html.EditorFor(model => model.CoverLetterFileName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CoverLetterFileName, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.CoverLetterFile, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CoverLetterFile, "", new { @class = "text-danger" })
                 </div>
 </div>
 
         <div class="form-group">
             <p class="control-label col-md-4">Application Status</p>
             <div class="col-md-8">
-                @Html.EditorFor(model => model.ApplicantStatus, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ApplicantStatus, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Item.ApplicantStatus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Item.ApplicantStatus, "", new { @class = "text-danger" })
             </div>
         </div>
 
