@@ -263,20 +263,6 @@ namespace CSDHRProject.Controllers
 
         }
 
-        //Attempt at interation of Project Dropdownlist. Found that DisplayFor or EditorFor is a better use as it does it as part of it's structure
-        //public ActionResult LoadProjects()
-        //{
-
-        //    List<SelectListItem> li = new List<SelectListItem>();
-        //    li.Add(new SelectListItem { Text = "Select Project", Value = 0 });
-        //    foreach (var project in db.PayrollModels.Project)
-        //    {
-        //        var count = 1;
-        //        li.Add(new SelectListItem { Text = Model.ProjectName, Value = count });
-        //        count++;
-        //    }
-
-        //}
         #endregion
 
         #region EmployeeTimesheet
