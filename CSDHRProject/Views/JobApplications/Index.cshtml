@@ -7,71 +7,82 @@
     var manager = appUser != null && appUser.manager;
 }
 
-<h2>Index</h2>
+<style>
+    #feature img {
+        margin: auto;
+    }
+</style>
+<div class="row">
+
+    <img id="feature" class="img-responsive" src="~/Content/images/logo_background.PNG" />
+</div>
+
+    <h2>Index</h2>
 
 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicantFirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicantLastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicantEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ResumeFileName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CoverLetterFileName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicantStatus)
-        </th>
-        <th></th>
-    </tr>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResumeFileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoverLetterFileName)
+            </th>
+            <th>
+                Application Status
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ApplicantFirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ApplicantLastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ApplicantEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ResumeFileName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CoverLetterFileName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ApplicantStatus)
-        </td>
-        <td>
-           
-           
-          
-            @{  if (manager)
-                {
-                 
-                    @:| @Html.ActionLink("Details", "Details",  new { id = item.JobApplicationId})
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicantFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicantLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicantEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResumeFileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoverLetterFileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicantStatus)
+                </td>
+                <td>
+
+
+
+                    @{  if (manager)
+                        {
+
+                            @:| @Html.ActionLink("Details", "Details", new { id = item.JobApplicationId })
+
 
                 }
-                }
+                    }
 
-        </td>
-    </tr>
-}
+                </td>
+            </tr>
+                        }
 
-</table>
+    </table>
