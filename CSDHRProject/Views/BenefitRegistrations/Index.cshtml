@@ -8,9 +8,9 @@
 }
 
 <h2>Index</h2>
-@if (userData != null)
+    @if (userData != null)
 {
-    @Html.ActionLink("EmployeeClaims", "Index")
+    @Html.ActionLink("EmployeeClaims", "../EmployeeClaims/Index")
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -58,17 +58,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Paramedical)
                 </td>
+                
                 <td>
-
-                    if (userData.manager)
-                    {
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    }
+
                 </td>
+               
             </tr>
         }
-
 
     </table>
 }
