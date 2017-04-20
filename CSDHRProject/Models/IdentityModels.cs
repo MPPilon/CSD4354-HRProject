@@ -20,9 +20,13 @@ namespace CSDHRProject.Models
 
         //Custom User attributes
         public bool manager { get; set; }
+
         public bool role { get; set; }
 
         [Display(Name = "First Name")]
+
+        public bool admin { get; set; }
+
         public string firstname { get; set; }
 
         [Display(Name = "Last Name")]
