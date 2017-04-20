@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 
 namespace CSDHRProject.Models
 {
@@ -20,15 +21,32 @@ namespace CSDHRProject.Models
         //Custom User attributes
         public bool manager { get; set; }
         public bool role { get; set; }
+
+        [Display(Name = "First Name")]
         public string firstname { get; set; }
+
+        [Display(Name = "Last Name")]
         public string lastname { get; set; }
+
+        [Display(Name = "Sin")]
         public string Sin { get; set; }
+
+        [Display(Name = "Bank Depost Account Number")]
         public string BenefitNumber { get; set; }
+
+        [Display(Name = "Rate of Pay")]
         public double RateOfPay { get; set; }
- 
+
+        [Display(Name = "Vacation Days")]
         public int VacationDays { get; set; }
+
+        [Display(Name = "Sick Days")]
         public int SickDays { get; set; }
+
+        [Display(Name = "Benefit Certificate File")]
         public string BenefitCertificateFileName { get; set; }
+
+        [Display(Name = "Training Certificate File")]
         public string TrainingCertificateFileName { get; set; }
     }
 

@@ -29,12 +29,14 @@ namespace CSDHRProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RegisterViewModel newHireModel = db.NewHireModels.Find(id);
-            if (newHireModel == null)
+           
+            ApplicationUser user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(newHireModel);
+
+            return View(new NewHireEditViewModel { UserData = user });
         }
 
         // GET: NewHire/Create
@@ -72,7 +74,7 @@ namespace CSDHRProject.Controllers
             {
                 return HttpNotFound();
             }
-            return View(new NewHireEditViewModel { User = user });
+            return View(new NewHireEditViewModel { UserData = user });
         }
 
         // POST: NewHire/Edit/5
@@ -80,31 +82,32 @@ namespace CSDHRProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "User, BenefitFile, TrainingFile")] NewHireEditViewModel nhvm)
+        public ActionResult Edit([Bind(Include = "UserData, BenefitFile, TrainingFile")] NewHireEditViewModel nhvm)
         {
+            Console.Out.WriteLine("Received nhvm: " + nhvm.ToString());
             if (ModelState.IsValid)
             {
-                //var user = db.Users.Find(nhvm.User.Id);
+
                 //user.
                 var fileFolder = "fileDocuments";
 
-                if (nhvm.BenefitFile != null && nhvm.BenefitFile.ContentLength > 0 )
+                if (nhvm.BenefitFile != null && nhvm.BenefitFile.ContentLength > 0)
                 {
                     var BenefitFileName = DateTime.Now.ToBinary().ToString("X") + Path.GetFileName(nhvm.BenefitFile.FileName);
                     var path1 = Path.Combine(Server.MapPath("~"), fileFolder, BenefitFileName);
                     nhvm.BenefitFile.SaveAs(path1);
-                    nhvm.User.BenefitCertificateFileName = "/" + fileFolder + "/" + BenefitFileName;
+                    nhvm.UserData.BenefitCertificateFileName = "/" + fileFolder + "/" + BenefitFileName;
                 }
-                if ( nhvm.TrainingFile != null && nhvm.TrainingFile.ContentLength > 0)
+                if (nhvm.TrainingFile != null && nhvm.TrainingFile.ContentLength > 0)
                 {
                     var TrainingFileName = DateTime.Now.ToBinary().ToString("X") + Path.GetFileName(nhvm.TrainingFile.FileName);
                     var path2 = Path.Combine(Server.MapPath("~"), fileFolder, TrainingFileName);
                     nhvm.TrainingFile.SaveAs(path2);
-                    nhvm.User.TrainingCertificateFileName = "/" + fileFolder + "/" + TrainingFileName;
+                    nhvm.UserData.TrainingCertificateFileName = "/" + fileFolder + "/" + TrainingFileName;
                 }
-                db.Entry(nhvm.User).State = EntityState.Modified;
+                db.Entry(nhvm.UserData).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = nhvm.UserData.Id });
             }
             return View(nhvm);
         }

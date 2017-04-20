@@ -78,7 +78,7 @@ namespace CSDHRProject.Models
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Confirm Password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
@@ -90,7 +90,7 @@ namespace CSDHRProject.Models
     }
     public class NewHireEditViewModel
     {
-        public ApplicationUser User { get; set; }
+        public ApplicationUser UserData { get; set; }
         public HttpPostedFileBase BenefitFile { get; set; }
         public HttpPostedFileBase TrainingFile { get; set; }
     }

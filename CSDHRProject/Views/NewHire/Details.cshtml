@@ -1,82 +1,83 @@
-﻿@model CSDHRProject.Models.NewHireModel
+﻿@model CSDHRProject.Models.NewHireEditViewModel
+
 
 @{
     ViewBag.Title = "Details";
+    var viewModel = Model.UserData;
 }
 
 <h2>Details</h2>
+<hr />
 
 <div>
-    <h4>NewHireModel</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.UserData.firstname)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.UserData.firstname )
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sin)
+            @Html.DisplayNameFor(model => model.UserData.Sin)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sin)
+            @Html.DisplayFor(model => model.UserData.Sin)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BenefitNumber)
+            @Html.DisplayNameFor(model => model.UserData.BenefitNumber)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BenefitNumber)
+            @Html.DisplayFor(model => model.UserData.BenefitNumber)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RateOfPay)
+            @Html.DisplayNameFor(model => model.UserData.RateOfPay)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RateOfPay)
+            @Html.DisplayFor(model => model.UserData.RateOfPay)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.VacationDays)
+            @Html.DisplayNameFor(model => model.UserData.VacationDays)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.VacationDays)
+            @Html.DisplayFor(model => model.UserData.VacationDays)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SickDays)
+            @Html.DisplayNameFor(model => model.UserData.SickDays)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SickDays)
+            @Html.DisplayFor(model => model.UserData.SickDays)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BenefitCertificateFileName)
+            @Html.DisplayNameFor(model => model.UserData.BenefitCertificateFileName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BenefitCertificateFileName)
+            @Html.DisplayFor(model => model.UserData.BenefitCertificateFileName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TrainingCertificateFileName)
+            @Html.DisplayNameFor(model => model.UserData.TrainingCertificateFileName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TrainingCertificateFileName)
+            @Html.DisplayFor(model => model.UserData.TrainingCertificateFileName)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+  @Html.ActionLink("Edit", "Edit", new { id = viewModel.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
