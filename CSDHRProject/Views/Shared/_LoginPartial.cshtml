@@ -1,4 +1,8 @@
 ﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
+@{ 
+    var userData = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+}
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -7,8 +11,19 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @if (userData.firstname == null || userData.lastname == null || userData.Sin == null || userData.BenefitNumber == null ||
+                 userData.RateOfPay == 0.00 || userData.VacationDays == 0.00 || userData.SickDays == 0.00 || userData.BenefitCertificateFileName == null ||
+                 userData.TrainingCertificateFileName == null)
+            {
+                @Html.ActionLink("!", "Details", "NewHire", new { id = userData.Id }, htmlAttributes: new { color = "red" })
+            }
+
+
+        </li> 
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Details", "NewHire",  new { id = userData.Id}, htmlAttributes: new { title = "Manage" })
         </li>
+       
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
     }
@@ -16,7 +31,6 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

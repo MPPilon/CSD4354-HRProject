@@ -1,0 +1,75 @@
+﻿@model CSDHRProject.Models.JobPosting
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<style>
+    #feature img {
+        margin: auto;
+    }
+</style>
+<div class="row">
+
+    <img id="feature" class="img-responsive" src="~/Content/images/logo_background.PNG" />
+
+</div>
+
+<h2>Create a Job Posting</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group createPosting">
+            <p class = "control-label col-md-4">Job Title</p>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.JobTitle, new { htmlAttributes = new { @class = "form-control input-lg" } })
+                @Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group createPosting">
+            <p class="control-label col-md-4">Application Deadline Date (MM/DD/YYYY)</p>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.JobPostingDeadline, new { htmlAttributes = new { @class = "form-control input-lg" } })
+                @Html.ValidationMessageFor(model => model.JobPostingDeadline, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group createPosting">
+            <p class="control-label col-md-4">Department</p>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.JobDepartmentName, new { htmlAttributes = new { @class = "form-control input-lg" } })
+                @Html.ValidationMessageFor(model => model.JobDepartmentName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group createPosting">
+            <p class="control-label col-md-4">Job Description File (pdf) location</p>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.JobPostingFileName, new { htmlAttributes = new { @class = "form-control input-lg" } })
+                @Html.ValidationMessageFor(model => model.JobPostingFileName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <button style="width: 100%" class="btn btn-default">@Html.ActionLink("Back to Job Postings", "Index")</button> 
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
