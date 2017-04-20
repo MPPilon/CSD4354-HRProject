@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CSDHRProject.Models.ProjectUser>
+
+@{
+    ViewBag.Title = "ProjectInfo";
+}
+
+<h2>ProjectInfo</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.User)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Project)
+        </th>
+
+        <
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project)
+            </td>
+            
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Details", "ProjectInfo", new { id = item.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,54 @@
+﻿@model CSDHRProject.Models.EmployeeClaim
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeClaim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    if (userData.manager)
+    {
+    @Html.ActionLink("View Claim", "Details", new { }, new { @class = "btn btn-sm btn-primary" }) |
+    }
+    @Html.ActionLink("Back to List", "Index")
+</p>

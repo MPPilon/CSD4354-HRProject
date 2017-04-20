@@ -1,0 +1,92 @@
+﻿@model IEnumerable<CSDHRProject.Models.PayrollModels>
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+
+@{
+    ViewBag.Title = "PayrollHome";
+    var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+
+}
+
+<h2>@user.firstname's Timesheet Summary</h2>
+
+<div>
+    <p>Employee Name: @user.UserName</p>
+
+</div>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Project
+            </th>
+            <th>
+                Work Note
+            </th>
+            <th>
+                Hours
+            </th>
+            <th>
+                Entry Added
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+        <tr>
+        </tr>
+    </table>
+</div>
+<div>
+    <h4>PayrollModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TimesheetDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimesheetDate)
+        </dd>
+          
+        <dt>
+            @Html.DisplayNameFor(model => model.ManagerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManagerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManagerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManagerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -151,11 +151,15 @@ namespace CSDHRProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, BenefitCertificateFileName = model.User.BenefitCertificateFileName, TrainingCertificateFileName = model.User.TrainingCertificateFileName
+                    , SickDays = model.User.SickDays, VacationDays = model.User.VacationDays, RateOfPay = model.User.RateOfPay, BenefitNumber = model.User.BenefitNumber, 
+                    Sin = model.User.Sin, firstname = model.User.firstname, lastname = model.User.lastname
+                    
+                    };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                   // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -163,7 +167,7 @@ namespace CSDHRProject.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "NewHire");
                 }
                 AddErrors(result);
             }

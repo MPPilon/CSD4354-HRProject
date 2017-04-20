@@ -1,0 +1,65 @@
+﻿@model CSDHRProject.Models.BenefitRegistration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BenefitRegistration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RealtionshipStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealtionshipStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BenefitType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BenefitType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dental)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dental)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Optical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Optical)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paramedical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paramedical)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

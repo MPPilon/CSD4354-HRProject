@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CSDHRProject.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Project Management</h2>
+
+<p>
+    @Html.ActionLink("Add Project", "Create", new { @class = "btn btn-info" } )
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+       
+         <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+       
+         <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Details", "ProjectInfo", new { id = item.Id }, new { @class = "btn btn-default"})
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+        </td>
+        
+    </tr>
+}
+
+</table>
