@@ -1,0 +1,94 @@
+﻿@model IEnumerable<CSDHRProject.Models.ApplicationUser>
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+
+@{
+    ViewBag.Title = "Index";
+    var userData = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+}
+
+<h2>Index</h2>
+
+@if (userData != null)
+{
+
+
+    if (userData.manager)
+    {
+
+        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.firstname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lastname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BenefitNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RateOfPay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VacationDays)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SickDays)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BenefitCertificateFileName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TrainingCertificateFileName)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.firstname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BenefitNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RateOfPay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VacationDays)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SickDays)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BenefitCertificateFileName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TrainingCertificateFileName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <h2>You are not authorzed to view this content</h2>
+    }
+}
+else
+{
+    <h2>You must be logged in to access this information</h2>
+}
