@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<CSDHRProject.Models.ProjectUser>
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
 
 @{
     ViewBag.Title = "ProjectInfo";
+    var userData = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
 }
 
 <h2>ProjectInfo</h2>
@@ -38,9 +41,12 @@
             
 
             <td>
+                @if (userData.manager)
+                {
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
                 @Html.ActionLink("Details", "ProjectInfo", new { id = item.Id }, new { @class = "btn btn-default" })
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                }
             </td>
 
         </tr>

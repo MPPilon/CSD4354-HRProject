@@ -23,10 +23,9 @@ namespace CSDHRProject.Models
 
         public bool role { get; set; }
 
-        [Display(Name = "First Name")]
-
         public bool admin { get; set; }
 
+        [Display(Name = "First Name")]
         public string firstname { get; set; }
 
         [Display(Name = "Last Name")]

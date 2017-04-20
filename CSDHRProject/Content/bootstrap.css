@@ -3530,7 +3530,7 @@ tbody.collapse.in {
   font-size: 14px;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #2b4368;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   border: 1px solid #ccc;
@@ -3555,7 +3555,7 @@ tbody.collapse.in {
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
-  color: #333;
+  color: #000;
   white-space: nowrap;
 }
 .dropdown-menu > li > a:hover,
@@ -4956,48 +4956,43 @@ a.badge:focus {
   margin-left: 3px;
 }
 .jumbotron {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  /*padding: 30px;*/
   margin-bottom: 30px;
-  color: inherit;
-  background-color: #eee;
-}
-.jumbotron h1,
-.jumbotron .h1 {
-  color: inherit;
-}
-.jumbotron p {
-  margin-bottom: 15px;
   font-size: 21px;
   font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #eeeeee;
+ 
 }
-.jumbotron > hr {
-  border-top-color: #d5d5d5;
+
+/*.jumbotron h1 {
+  line-height: 1;
+  color: inherit;
 }
-.container .jumbotron,
-.container-fluid .jumbotron {
-  padding-right: 15px;
-  padding-left: 15px;
+
+.jumbotron p {
+  line-height: 1.4;
+}
+
+.container .jumbotron {
   border-radius: 6px;
 }
-.jumbotron .container {
-  max-width: 100%;
-}
+
 @media screen and (min-width: 768px) {
   .jumbotron {
     padding-top: 48px;
     padding-bottom: 48px;
   }
-  .container .jumbotron,
-  .container-fluid .jumbotron {
+  .container .jumbotron {
     padding-right: 60px;
     padding-left: 60px;
   }
-  .jumbotron h1,
-  .jumbotron .h1 {
+  .jumbotron h1 {
     font-size: 63px;
   }
-}
+}*/
+
 .thumbnail {
   display: block;
   padding: 4px;
