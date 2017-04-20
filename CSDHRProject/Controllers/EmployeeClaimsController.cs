@@ -19,9 +19,7 @@ namespace CSDHRProject.Controllers
         // GET: EmployeeClaims
         public ActionResult Index()
         {
-            var appUser = this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
-            var claims = db.EmployeeClaims.Where(x => x.User.Id == appUser.Id).ToList();
-            return View();
+            return View(db.EmployeeClaims.ToList());
         }
 
         // GET: EmployeeClaims/Details/5
@@ -54,8 +52,6 @@ namespace CSDHRProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                var appUser = this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
-                employeeClaim.User = appUser;
                 db.EmployeeClaims.Add(employeeClaim);
                 db.SaveChanges();
                 return RedirectToAction("Index");

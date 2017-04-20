@@ -46,7 +46,9 @@
 </div>
 <p>
     
-    
+    if (userData.manager)
+    {
     @Html.ActionLink("View Claim", "Details", new { }, new { @class = "btn btn-sm btn-primary" }) |
+    }
     @Html.ActionLink("Back to List", "Index")
 </p>

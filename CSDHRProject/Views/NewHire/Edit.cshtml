@@ -1,0 +1,129 @@
+﻿@model CSDHRProject.Models.NewHireEditViewModel
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+
+@{
+    ViewBag.Title = "Edit";
+    var userData = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+    
+}
+
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Edit", "NewHire", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>NewHireModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.UserData.Id)
+        @Html.HiddenFor(model => model.UserData.Email)
+        @Html.HiddenFor(model => model.UserData.EmailConfirmed)
+        @Html.HiddenFor(model => model.UserData.PasswordHash)
+        @Html.HiddenFor(model => model.UserData.SecurityStamp)
+        @Html.HiddenFor(model => model.UserData.PhoneNumber)
+        @Html.HiddenFor(model => model.UserData.PhoneNumberConfirmed)
+        @Html.HiddenFor(model => model.UserData.TwoFactorEnabled)
+        @Html.HiddenFor(model => model.UserData.LockoutEndDateUtc)
+        @Html.HiddenFor(model => model.UserData.LockoutEnabled)
+        @Html.HiddenFor(model => model.UserData.AccessFailedCount)
+        @Html.HiddenFor(model => model.UserData.UserName)
+        @Html.HiddenFor(model => model.UserData.manager)
+        @Html.HiddenFor(model => model.UserData.role)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserData.firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserData.firstname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserData.firstname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserData.lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserData.lastname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserData.lastname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserData.Sin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserData.Sin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserData.Sin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserData.BenefitNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserData.BenefitNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserData.BenefitNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BenefitFile, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BenefitFile, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BenefitFile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrainingFile, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TrainingFile, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrainingFile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <!--only managers and admin will be able to edit these fields. Regular users will not be able to edit only view-->
+        @if(userData.manager)
+        {
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserData.RateOfPay, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserData.RateOfPay, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserData.RateOfPay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserData.VacationDays, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserData.VacationDays, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserData.VacationDays, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserData.SickDays, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserData.SickDays, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserData.SickDays, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

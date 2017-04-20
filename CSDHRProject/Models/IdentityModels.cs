@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 
 namespace CSDHRProject.Models
 {
@@ -19,7 +20,34 @@ namespace CSDHRProject.Models
 
         //Custom User attributes
         public bool manager { get; set; }
-        public bool admin { get; set; }
+        public bool role { get; set; }
+
+        [Display(Name = "First Name")]
+        public string firstname { get; set; }
+
+        [Display(Name = "Last Name")]
+        public string lastname { get; set; }
+
+        [Display(Name = "Sin")]
+        public string Sin { get; set; }
+
+        [Display(Name = "Bank Depost Account Number")]
+        public string BenefitNumber { get; set; }
+
+        [Display(Name = "Rate of Pay")]
+        public double RateOfPay { get; set; }
+
+        [Display(Name = "Vacation Days")]
+        public int VacationDays { get; set; }
+
+        [Display(Name = "Sick Days")]
+        public int SickDays { get; set; }
+
+        [Display(Name = "Benefit Certificate File")]
+        public string BenefitCertificateFileName { get; set; }
+
+        [Display(Name = "Training Certificate File")]
+        public string TrainingCertificateFileName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -34,17 +62,23 @@ namespace CSDHRProject.Models
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<CSDHRProject.Models.RegisterViewModel> NewHireModels { get; set; }
+        
         public System.Data.Entity.DbSet<CSDHRProject.Models.JobPosting> JobPostings { get; set; }
 
         public System.Data.Entity.DbSet<CSDHRProject.Models.JobApplication> JobApplications { get; set; }
 
         public System.Data.Entity.DbSet<CSDHRProject.Models.Project> Projects { get; set; }
         public System.Data.Entity.DbSet<CSDHRProject.Models.ProjectUser> ProjectUsers { get; set; }
+
+        public System.Data.Entity.DbSet<CSDHRProject.Models.PayrollModels> PayrollModels { get; set; }
+
         public System.Data.Entity.DbSet<CSDHRProject.Models.BenefitRegistration> BenefitRegistrations { get; set; }
 
         public System.Data.Entity.DbSet<CSDHRProject.Models.EmployeeClaim> EmployeeClaims { get; set; }
 
         public System.Data.Entity.DbSet<CSDHRProject.Models.Address> Addresses { get; set; }
+
 
         //Insert DbSet variables (Table Names!) here in the following format:
         // public DbSet<%MODEL_NAME%> %TABLE_NAME% { get; set; }
