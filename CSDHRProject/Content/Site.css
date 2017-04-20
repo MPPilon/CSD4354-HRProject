@@ -22,3 +22,59 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* CSS for Job Application form for Job Detail page*/
+.jobApplicationSubmitForm {
+    padding: 3%;
+    width: 70%;
+    margin-left: 10%;
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 20px;
+}
+
+.jobApplicationSubmitForm button {
+    width: 100%;
+}
+
+.postingTable {
+    border: 2px solid black;
+}
+
+.tableHeader th{
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-left: 1px solid white;
+}
+
+.tableHeader {
+    margin-bottom: 0;
+}
+
+.tableHeader td{
+    border: 1px solid black;
+}
+
+.tableHeader button a{
+    text-decoration: none;
+    color: white;
+}
+
+#tableT {
+    padding-left: 0;
+    padding-right: 0;  
+}
+
+.tableBack {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.createPosting p {
+    font-weight: 900;
+}
+
+.createPosting input {
+    width: 100%;
+}

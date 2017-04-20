@@ -1,0 +1,72 @@
+﻿@model CSDHRProject.Models.JobApplication
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>JobApplication</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicantFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicantFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicantLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicantLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicantEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicantEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumeFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumeFileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoverLetterFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoverLetterFileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicantStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicantStatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

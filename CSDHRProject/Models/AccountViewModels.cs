@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using CSDHRProject.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace CSDHRProject.Models
 {
@@ -76,9 +78,21 @@ namespace CSDHRProject.Models
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Confirm Password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public string Name { get; set; }
+        public string Id { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
+
+    }
+    public class NewHireEditViewModel
+    {
+        public ApplicationUser UserData { get; set; }
+        public HttpPostedFileBase BenefitFile { get; set; }
+        public HttpPostedFileBase TrainingFile { get; set; }
     }
 
     public class ResetPasswordViewModel
