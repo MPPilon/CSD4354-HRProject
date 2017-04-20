@@ -7,8 +7,6 @@
     var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
 }
 
-<!-- Get this stupid thing to work later -->
-<h2>@user.UserName's Payroll Summary</h2>
 
 
 <h6>@Html.ActionLink("Instructions on entering timesheets", "Instructions")</h6>

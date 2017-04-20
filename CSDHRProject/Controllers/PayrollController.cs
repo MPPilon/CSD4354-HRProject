@@ -217,13 +217,18 @@ namespace CSDHRProject.Controllers
             System.Web.UI.WebControls.Calendar cal = new System.Web.UI.WebControls.Calendar();
             cal.ID = "MyCalendar";
             cal.CssClass = "month-view";
+            cal.CssClass = "calendar";
             cal.CellSpacing = 0;
             cal.CellPadding = -1;
             cal.BorderWidth = 0;
             cal.ShowGridLines = true;
             cal.ShowTitle = false;
-            cal.CellPadding = 20;
-
+            cal.CellPadding = 50;
+            //cal.BorderStyle = Solid 2;
+            cal.TitleStyle.BackColor = System.Drawing.Color.LightSkyBlue;
+            cal.TitleStyle.ForeColor = System.Drawing.Color.White;
+            cal.DayStyle.BackColor = System.Drawing.Color.LightGray;
+            cal.ShowNextPrevMonth = true;
             cal.DayNameFormat = System.Web.UI.WebControls.DayNameFormat.Full;
             cal.DayRender += new System.Web.UI.WebControls.DayRenderEventHandler(CalendarDayRender);
             StringBuilder sb = new StringBuilder();
@@ -244,9 +249,10 @@ namespace CSDHRProject.Controllers
             if (e.Day.Date == System.DateTime.Today)
             {
                 e.Cell.CssClass = "today";
-                System.Web.UI.HtmlControls.HtmlGenericControl h3 = new System.Web.UI.HtmlControls.HtmlGenericControl("h3");
-                h3.InnerHtml = HttpContext.GetGlobalResourceObject("JTG_DateTime", "JTK_Today") + " " + e.Day.DayNumberText;
-                e.Cell.Controls.Add(h3);
+                e.Cell.BackColor = System.Drawing.Color.Gray;
+                System.Web.UI.HtmlControls.HtmlGenericControl h4 = new System.Web.UI.HtmlControls.HtmlGenericControl("h3");
+                h4.InnerHtml = HttpContext.GetGlobalResourceObject("JTG_DateTime", "JTK_Today") + " " + e.Day.DayNumberText;
+                e.Cell.Controls.Add(h4);
             }
             else
             {
