@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CSDHRProject.Models;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace CSDHRProject.Controllers
 {
@@ -17,6 +19,7 @@ namespace CSDHRProject.Controllers
         // GET: BenefitRegistrations
         public ActionResult Index()
         {
+      
             return View(db.BenefitRegistrations.ToList());
         }
 
