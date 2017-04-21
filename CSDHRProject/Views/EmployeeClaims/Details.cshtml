@@ -46,9 +46,9 @@
 </div>
 <p>
     
-    if (userData.manager)
-    {
-    @Html.ActionLink("View Claim", "Details", new { }, new { @class = "btn btn-sm btn-primary" }) |
-    }
-    @Html.ActionLink("Back to List", "Index")
+    @*if (userData.manager)
+    {*@
+    @Html.ActionLink("Accept Claim", "Index", new { }, new { @class = "btn btn-sm btn-primary" })
+    @*}*@
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-sm btn-info" })
 </p>

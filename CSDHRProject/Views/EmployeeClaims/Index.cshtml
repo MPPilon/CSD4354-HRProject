@@ -9,7 +9,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New Claim", "Create")
+    @Html.ActionLink("Create New Claim", "Create", new { }, new { @class = "btn btn-sm btn-info" })
 </p>
 <table class="table">
     <tr>
@@ -43,11 +43,9 @@
             @Html.DisplayFor(modelItem => item.Service)
         </td>
         <td>
-           @Html.ActionLink("Details", "Details", new { id = item.Id })
-            if (userData.manager)
-            {
-            @Html.ActionLink("View Claim", "Details", new { id=item.Id }, new { @class = "btn btn-sm btn-primary" }) |
-            }
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" }) 
+            
+            @Html.ActionLink("View Claim", "Details", new { id=item.Id }, new { @class = "btn btn-sm btn-primary" }) 
         </td>
     </tr>
 }
