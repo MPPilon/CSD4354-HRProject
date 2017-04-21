@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CSDHRProject.Models;
+using System.IO;
 
 namespace CSDHRProject.Controllers
 {
@@ -56,6 +57,42 @@ namespace CSDHRProject.Controllers
             }
 
             return View(jobApplication);
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateJobApplication(ApplicationEditViewModel jevm)
+        {
+            JobApplication jobApplication = jevm.Item;
+            
+            if (ModelState.IsValid)
+            {
+                if(jevm.ResumeFile != null && jevm.ResumeFile.ContentLength > 0)
+                {
+                    var applicationFolder = "/Content/JobApplications/";
+                    var filename = DateTime.Now.ToBinary().ToString("x") +
+                        Path.GetFileName(jevm.ResumeFile.FileName);
+                    var path = Path.Combine(Server.MapPath("~" + applicationFolder), filename);
+                    jevm.ResumeFile.SaveAs(path);
+                    jevm.Item.ResumeFileName = applicationFolder + filename;
+
+                }
+
+                if (jevm.CoverLetterFile != null && jevm.CoverLetterFile.ContentLength > 0)
+                {
+                    var applicationFolder = "/Content/JobApplications/";
+                    var filename = DateTime.Now.ToBinary().ToString("x") +
+                        Path.GetFileName(jevm.CoverLetterFile.FileName);
+                    var path = Path.Combine(Server.MapPath("~" + applicationFolder), filename);
+                    jevm.CoverLetterFile.SaveAs(path);
+                    jevm.Item.CoverLetterFileName = applicationFolder + filename;
+                }
+                db.JobApplications.Add(jobApplication);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+
         }
 
         // GET: JobApplications/Edit/5
